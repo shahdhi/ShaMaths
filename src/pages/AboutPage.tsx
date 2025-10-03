@@ -78,7 +78,7 @@ export default function AboutPage({ onNavigate }: AboutPageProps) {
               <div className="space-y-6 text-lg text-gray-700 leading-relaxed">
                 <p>
                   Sha Maths was founded on a simple yet powerful belief: mathematics should be
-                  accessible, engaging, and transformative. Based in Japan, we offer fully
+                  accessible, engaging, and transformative. We offer fully
                   English instruction for students seeking excellence in mathematics education,
                   from IGCSE through university level.
                 </p>
@@ -111,7 +111,7 @@ export default function AboutPage({ onNavigate }: AboutPageProps) {
                     <span className="text-primary-700 mr-3 text-2xl font-bold">•</span>
                     <span>
                       <strong className="text-gray-900">Conceptual Clarity:</strong> We ensure
-                      students understand the 'why\' behind every concept, not just the \'how'.
+                      students understand the 'why' behind every concept, not just the 'how'.
                     </span>
                   </li>
                   <li className="flex items-start transition-all duration-300 hover:translate-x-1">
