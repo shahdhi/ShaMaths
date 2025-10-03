@@ -86,6 +86,10 @@ export default function Footer({ onNavigate }: FooterProps) {
                 <MapPin size={18} className="mt-0.5 flex-shrink-0" />
                 <span className="text-sm">Kyoto, Japan</span>
               </li>
+              <li className="flex items-start space-x-3">
+                <MapPin size={18} className="mt-0.5 flex-shrink-0" />
+                <span className="text-sm">Colombo, Sri Lanka</span>
+              </li>
             </ul>
           </div>
         </div>
