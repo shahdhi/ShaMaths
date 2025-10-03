@@ -100,7 +100,7 @@ export default function HomePage({ onNavigate }: HomePageProps) {
             <span className="text-primary-700">Mastered.</span>
           </h1>
           <p className={`text-lg md:text-xl text-gray-600 max-w-2xl mx-auto mb-12 leading-relaxed transition-all duration-1000 delay-200 ${isVisible.hero ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
-            Excellence in mathematics education with fully English instruction in Japan.
+            Excellence in mathematics education with fully English instruction.
             Build mastery from IGCSE to university level.
           </p>
           <div className={`flex flex-col sm:flex-row gap-4 justify-center transition-all duration-1000 delay-400 ${isVisible.hero ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
@@ -133,7 +133,7 @@ export default function HomePage({ onNavigate }: HomePageProps) {
           <div className="max-w-4xl mx-auto space-y-6">
             <p className={`text-lg text-gray-700 leading-relaxed transition-all duration-1000 delay-100 ${isVisible.about ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
               Sha Maths was founded on a simple belief: mathematics should be accessible,
-              engaging, and transformative. Based in Japan, we offer fully English instruction
+              engaging, and transformative. We offer fully English instruction
               for students seeking excellence in mathematics education.
             </p>
             <p className={`text-lg text-gray-700 leading-relaxed transition-all duration-1000 delay-200 ${isVisible.about ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
