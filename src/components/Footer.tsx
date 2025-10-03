@@ -14,7 +14,7 @@ export default function Footer({ onNavigate }: FooterProps) {
           <div>
             <h3 className="text-white text-2xl font-serif font-bold mb-4">Sha Maths</h3>
             <p className="text-sm leading-relaxed mb-6">
-              Excellence in mathematics education with fully English instruction in Japan.
+              Excellence in mathematics education with fully English instruction.
             </p>
             <div className="flex space-x-4">
               <a
@@ -80,11 +80,11 @@ export default function Footer({ onNavigate }: FooterProps) {
               </li>
               <li className="flex items-start space-x-3">
                 <Phone size={18} className="mt-0.5 flex-shrink-0" />
-                <span className="text-sm">+81 (0)XX-XXXX-XXXX</span>
+                <span className="text-sm">+81 70-9328-3467</span>
               </li>
               <li className="flex items-start space-x-3">
                 <MapPin size={18} className="mt-0.5 flex-shrink-0" />
-                <span className="text-sm">Tokyo, Japan</span>
+                <span className="text-sm">Kyoto, Japan</span>
               </li>
             </ul>
           </div>
