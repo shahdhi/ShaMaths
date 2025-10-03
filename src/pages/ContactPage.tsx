@@ -163,7 +163,7 @@ export default function ContactPage({ onNavigate }: ContactPageProps) {
                   </div>
                   <div>
                     <h3 className="font-semibold mb-1">Phone</h3>
-                    <p className="text-primary-100">+81 (0)XX-XXXX-XXXX</p>
+                    <p className="text-primary-100">+81 (0)70-9328-3467</p>
                   </div>
                 </div>
 
@@ -173,28 +173,8 @@ export default function ContactPage({ onNavigate }: ContactPageProps) {
                   </div>
                   <div>
                     <h3 className="font-semibold mb-1">Location</h3>
-                    <p className="text-primary-100">Tokyo, Japan</p>
+                    <p className="text-primary-100">Kyoto, Japan</p>
                   </div>
-                </div>
-              </div>
-            </div>
-
-            <div className="bg-gray-50 rounded-3xl p-8">
-              <h3 className="text-xl font-serif font-bold text-gray-900 mb-4">
-                Office Hours
-              </h3>
-              <div className="space-y-3 text-gray-700">
-                <div className="flex justify-between">
-                  <span>Monday - Friday</span>
-                  <span className="font-medium">9:00 - 20:00</span>
-                </div>
-                <div className="flex justify-between">
-                  <span>Saturday</span>
-                  <span className="font-medium">10:00 - 18:00</span>
-                </div>
-                <div className="flex justify-between">
-                  <span>Sunday</span>
-                  <span className="font-medium">Closed</span>
                 </div>
               </div>
             </div>
