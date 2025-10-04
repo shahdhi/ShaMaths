@@ -219,7 +219,7 @@ export default function AdmissionPage({ onNavigate }: AdmissionPageProps) {
                     onChange={handleChange}
                     required
                     className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-all outline-none"
-                    placeholder="+81 XX-XXXX-XXXX"
+                    placeholder="Phone number"
                   />
                 </div>
               </div>
