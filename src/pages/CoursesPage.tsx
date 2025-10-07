@@ -10,110 +10,188 @@ export default function CoursesPage({ onNavigate }: CoursesPageProps) {
 
   const courses = [
     {
-      id: 'cla1',
-      title: 'CLA1 – Calculus & Linear Algebra 1',
-      level: 'University',
+      id: 'beginner-a1',
+      title: 'Foundations of Algebra & Arithmetic',
+      level: 'Beginner',
       description:
-        'University-level foundational course in calculus and linear algebra. Perfect for first-year mathematics students seeking mastery of core concepts.',
+        'Build confidence in numbers, operations, and algebraic thinking. Turn confusion into clarity—master the language of numbers.',
       topics: [
-        'Limits and Derivatives',
-        'Integration Techniques',
-        'Matrices and Determinants',
-        'Vector Spaces',
-        'Linear Transformations',
-        'Eigenvalues and Eigenvectors',
+        'Place Value, Fractions, Decimals',
+        'Order of Operations (BIDMAS)',
+        'Basic Algebra: Expressions & Equations',
+        'Graphing Linear Relationships',
+        'Problem-Solving Strategies',
+        'Introduction to Variables',
       ],
-      format: 'Weekly sessions',
-      schedule: 'English instruction',
+      format: 'Weekly 90-minute sessions',
+      schedule: 'Year-round enrollment',
+      prerequisites: 'None',
     },
     {
-      id: 'ial-pure',
-      title: 'IAL Pure Mathematics (P1, P2, P3, P4)',
+      id: 'beginner-a2',
+      title: 'Geometry & Visual Reasoning',
+      level: 'Beginner',
+      description:
+        'Explore shapes, space, and measurement through intuitive problem-solving. Build spatial awareness and geometric intuition.',
+      topics: [
+        'Angles, Triangles, Polygons',
+        'Perimeter, Area, Volume',
+        'Coordinate Geometry Basics',
+        'Transformations and Symmetry',
+        'Pythagorean Theorem',
+        'Introduction to Proofs',
+      ],
+      format: 'Weekly 90-minute sessions',
+      schedule: 'Year-round enrollment',
+      prerequisites: 'Course A1 or equivalent',
+    },
+    {
+      id: 'intermediate-b1',
+      title: 'Algebraic Techniques & Functions',
+      level: 'Intermediate',
+      description:
+        'Transition from basic algebra to powerful problem-solving tools. Master the techniques that bridge to formal mathematics.',
+      topics: [
+        'Quadratics and Factorization',
+        'Simultaneous Equations',
+        'Function Notation and Graphs',
+        'Inequalities and Modulus',
+        'Polynomial Expressions',
+        'Exponential and Logarithmic Functions',
+      ],
+      format: 'Weekly 2-hour sessions',
+      schedule: 'Flexible scheduling available',
+      prerequisites: 'Course A1 or equivalent',
+    },
+    {
+      id: 'intermediate-b2',
+      title: 'Trigonometry & Introductory Calculus',
+      level: 'Intermediate',
+      description:
+        'Discover the power of angles and rates of change. Connect algebra to real-world applications through trigonometry and calculus.',
+      topics: [
+        'Trigonometric Ratios and Identities',
+        'Graphs of Sine, Cosine, Tangent',
+        'Differentiation Basics',
+        'Applications to Motion and Modeling',
+        'Solving Trigonometric Equations',
+        'Integration Introduction',
+      ],
+      format: 'Weekly 2-hour sessions',
+      schedule: 'Flexible scheduling available',
+      prerequisites: 'Course B1 or equivalent',
+    },
+    {
+      id: 'advanced-c1',
+      title: 'Calculus & Mathematical Modeling',
+      level: 'Advanced',
+      description:
+        'Dive deep into calculus and its real-world applications. Master the mathematics that powers science and engineering.',
+      topics: [
+        'Chain Rule, Product Rule, Quotient Rule',
+        'Implicit Differentiation',
+        'Integration Techniques',
+        'Differential Equations',
+        'Modeling with Functions',
+        'Optimization Problems',
+      ],
+      format: 'Weekly 2-hour sessions',
+      schedule: 'Flexible scheduling available',
+      prerequisites: 'Course B2 or strong foundation in calculus',
+    },
+    {
+      id: 'advanced-c2',
+      title: 'Abstract Reasoning & Complex Numbers',
+      level: 'Advanced',
+      description:
+        'Explore elegant mathematics beyond the real number line. Develop the abstract thinking skills needed for university mathematics.',
+      topics: [
+        'Complex Numbers (Algebraic & Geometric)',
+        'Proof by Induction',
+        'Matrices and Transformations',
+        'Sequences and Series',
+        'Vector Spaces',
+        'Mathematical Rigor and Logic',
+      ],
+      format: 'Weekly 2-hour sessions',
+      schedule: 'Flexible scheduling available',
+      prerequisites: 'Course C1 or equivalent',
+    },
+    {
+      id: 'ial-pure-1',
+      title: 'IAL Pure Mathematics 1',
       level: 'A-Level',
       description:
-        'Complete A-Level pure mathematics covering all four modules with comprehensive exam preparation and conceptual mastery.',
+        'First year of A-Level pure mathematics covering algebraic methods, coordinate geometry, and introduction to calculus.',
       topics: [
-        'Algebra and Functions',
+        'Algebraic Expressions',
+        'Quadratic Functions',
+        'Equations and Inequalities',
         'Coordinate Geometry',
         'Trigonometry',
-        'Calculus',
+        'Differentiation',
+      ],
+      format: 'Weekly 90-minute sessions',
+      schedule: 'Aligned with IAL exam schedule',
+      prerequisites: 'IGCSE Mathematics or equivalent',
+    },
+    {
+      id: 'ial-pure-2',
+      title: 'IAL Pure Mathematics 2',
+      level: 'A-Level',
+      description:
+        'Second year pure mathematics covering advanced calculus, sequences, and advanced trigonometry.',
+      topics: [
+        'Integration Techniques',
         'Sequences and Series',
-        'Proof Techniques',
+        'Binomial Expansion',
+        'Trigonometric Identities',
+        'Parametric Equations',
+        'Numerical Methods',
       ],
-      format: 'Modular tutoring',
-      schedule: 'Exam-focused sessions',
+      format: 'Weekly 90-minute sessions',
+      schedule: 'Aligned with IAL exam schedule',
+      prerequisites: 'IAL Pure Mathematics 1',
     },
     {
-      id: 'ial-mechanics',
-      title: 'IAL Mechanics (M1, M2, M3)',
-      level: 'A-Level',
-      description:
-        'A-Level mechanics modules covering kinematics, forces, and energy with conceptual depth and problem-solving focus.',
-      topics: [
-        'Kinematics in 1D and 2D',
-        'Newton\'s Laws',
-        'Forces and Friction',
-        'Work and Energy',
-        'Momentum and Impulse',
-        'Circular Motion',
-      ],
-      format: 'Conceptual + problem-solving',
-      schedule: 'Aligned with IAL exams',
-    },
-    {
-      id: 'ial-further-pure',
-      title: 'IAL Further Pure Mathematics (FP1, FP2, FP3)',
-      level: 'A-Level',
-      description:
-        'Advanced A-Level mathematics for high-achieving students, covering complex numbers, matrices, and differential equations.',
-      topics: [
-        'Complex Numbers',
-        'Matrix Algebra',
-        'Differential Equations',
-        'Polar Coordinates',
-        'Vectors in 3D',
-        'Series and Limits',
-      ],
-      format: 'Deep-dive sessions',
-      schedule: 'Visual modeling included',
-    },
-    {
-      id: 'igcse-maths-a',
-      title: 'IGCSE Mathematics A',
+      id: 'igcse-core',
+      title: 'IGCSE Mathematics (Core)',
       level: 'IGCSE',
       description:
-        'Core IGCSE mathematics curriculum covering all fundamental topics with comprehensive exam preparation.',
+        'Comprehensive preparation for IGCSE Core Mathematics examination covering all fundamental topics.',
       topics: [
-        'Number and Algebra',
+        'Number Operations',
+        'Algebra Fundamentals',
         'Geometry and Mensuration',
         'Coordinate Geometry',
         'Statistics',
         'Probability',
-        'Graphs and Functions',
       ],
-      format: 'Foundation-level tutoring',
+      format: 'Weekly 90-minute sessions',
       schedule: 'Year-round enrollment',
+      prerequisites: 'Basic arithmetic skills',
     },
     {
-      id: 'igcse-maths-b',
-      title: 'IGCSE Mathematics B',
+      id: 'igcse-extended',
+      title: 'IGCSE Mathematics (Extended)',
       level: 'IGCSE',
       description:
-        'Extended IGCSE curriculum for advanced students, featuring challenging problem-solving and deeper mathematical thinking.',
+        'Advanced IGCSE mathematics covering extended syllabus topics for high-achieving students.',
       topics: [
         'Advanced Algebra',
-        'Trigonometry',
         'Functions and Graphs',
-        'Calculus Fundamentals',
-        'Problem Solving',
+        'Trigonometry',
+        'Calculus Introduction',
+        'Vectors and Transformations',
         'Advanced Statistics',
       ],
-      format: 'Exam-focused sessions',
+      format: 'Weekly 90-minute sessions',
       schedule: 'Year-round enrollment',
+      prerequisites: 'IGCSE Core or equivalent',
     },
   ];
 
-  const levels = ['all', 'University', 'A-Level', 'IGCSE'];
+  const levels = ['all', 'Beginner', 'Intermediate', 'Advanced', 'A-Level', 'IGCSE'];
 
   const filteredCourses =
     selectedLevel === 'all'
@@ -123,8 +201,8 @@ export default function CoursesPage({ onNavigate }: CoursesPageProps) {
   return (
     <div className="min-h-screen bg-white pt-32 pb-24">
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
-        <div className="text-center mb-16 opacity-0 animate-fade-in-up">
-          <h1 className="text-5xl md:text-6xl font-serif font-bold text-gray-900 mb-6">
+        <div className="text-center mb-16">
+          <h1 className="text-5xl md:text-6xl font-serif font-bold text-gray-900 mb-6 animate-fade-in">
             Our Courses
           </h1>
           <div className="w-20 h-1 bg-primary-700 mx-auto mb-6"></div>
@@ -134,7 +212,7 @@ export default function CoursesPage({ onNavigate }: CoursesPageProps) {
           </p>
         </div>
 
-        <div className="flex flex-wrap justify-center gap-4 mb-16 opacity-0 animate-fade-in animate-delay-200">
+        <div className="flex flex-wrap justify-center gap-4 mb-16">
           {levels.map((level) => (
             <button
               key={level}
@@ -142,7 +220,7 @@ export default function CoursesPage({ onNavigate }: CoursesPageProps) {
               className={`px-6 py-3 rounded-full font-medium transition-all duration-300 ${
                 selectedLevel === level
                   ? 'bg-primary-700 text-white shadow-lg scale-105'
-                  : 'bg-gray-100 text-gray-700 hover:bg-gray-200 hover:scale-105'
+                  : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
               }`}
             >
               {level === 'all' ? 'All Courses' : level}
@@ -154,11 +232,11 @@ export default function CoursesPage({ onNavigate }: CoursesPageProps) {
           {filteredCourses.map((course, index) => (
             <div
               key={course.id}
-              className="bg-white border border-gray-200 rounded-2xl overflow-hidden hover-lift opacity-0 animate-scale-in"
-              style={{ animationDelay: `${300 + index * 100}ms` }}
+              className="bg-white border border-gray-200 rounded-2xl overflow-hidden hover:shadow-2xl transition-all duration-500 group hover:-translate-y-1 animate-scale-in"
+              style={{ animationDelay: `${index * 100}ms` }}
             >
-              <div className="bg-gradient-to-br from-primary-700 to-primary-900 p-8 text-white transition-all duration-500 group-hover:from-primary-800 group-hover:to-primary-950">
-                <div className="inline-block px-4 py-1 bg-white/20 rounded-full text-sm font-medium mb-4 backdrop-blur-sm">
+              <div className="bg-gradient-to-br from-primary-700 to-primary-900 p-8 text-white">
+                <div className="inline-block px-4 py-1 bg-white/20 rounded-full text-sm font-medium mb-4">
                   {course.level}
                 </div>
                 <h3 className="text-2xl font-serif font-bold mb-3">{course.title}</h3>
@@ -173,7 +251,7 @@ export default function CoursesPage({ onNavigate }: CoursesPageProps) {
                   </h4>
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                     {course.topics.map((topic, idx) => (
-                      <div key={idx} className="flex items-start transition-all duration-300 hover:translate-x-1">
+                      <div key={idx} className="flex items-start">
                         <span className="text-primary-700 mr-2 mt-1">•</span>
                         <span className="text-gray-700">{topic}</span>
                       </div>
@@ -182,15 +260,15 @@ export default function CoursesPage({ onNavigate }: CoursesPageProps) {
                 </div>
 
                 <div className="space-y-3 mb-6 pb-6 border-b border-gray-100">
-                  <div className="flex items-center text-gray-600 transition-all duration-300 hover:translate-x-1">
+                  <div className="flex items-center text-gray-600">
                     <Clock size={18} className="mr-3 text-primary-700" />
                     <span>{course.format}</span>
                   </div>
-                  <div className="flex items-center text-gray-600 transition-all duration-300 hover:translate-x-1">
+                  <div className="flex items-center text-gray-600">
                     <Calendar size={18} className="mr-3 text-primary-700" />
                     <span>{course.schedule}</span>
                   </div>
-                  <div className="flex items-center text-gray-600 transition-all duration-300 hover:translate-x-1">
+                  <div className="flex items-center text-gray-600">
                     <Users size={18} className="mr-3 text-primary-700" />
                     <span>Small group or individual sessions</span>
                   </div>
@@ -198,7 +276,7 @@ export default function CoursesPage({ onNavigate }: CoursesPageProps) {
 
                 <button
                   onClick={() => onNavigate('course-detail', course.id)}
-                  className="w-full py-3.5 bg-primary-700 text-white font-semibold rounded-full hover:bg-primary-800 transition-all duration-300 hover:scale-105 shadow-lg hover:shadow-2xl"
+                  className="w-full py-3.5 bg-primary-700 text-white font-semibold rounded-full hover:bg-primary-800 transition-all duration-300 hover:scale-105 shadow-lg group-hover:shadow-xl"
                 >
                   View Full Details
                 </button>
@@ -207,7 +285,7 @@ export default function CoursesPage({ onNavigate }: CoursesPageProps) {
           ))}
         </div>
 
-        <div className="mt-20 bg-gradient-to-br from-gray-50 to-primary-50/30 rounded-3xl p-12 text-center opacity-0 animate-fade-in-up" style={{ animationDelay: '800ms' }}>
+        <div className="mt-20 bg-gradient-to-br from-gray-50 to-primary-50/30 rounded-3xl p-12 text-center">
           <h2 className="text-3xl font-serif font-bold text-gray-900 mb-4">
             Not Sure Which Course Is Right?
           </h2>
