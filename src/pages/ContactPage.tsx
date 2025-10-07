@@ -163,7 +163,7 @@ export default function ContactPage({ onNavigate }: ContactPageProps) {
                   </div>
                   <div>
                     <h3 className="font-semibold mb-1">Phone</h3>
-                    <p className="text-primary-100">+81 (0)70-9328-3467</p>
+                    <p className="text-primary-100">+81 70-9328-3467</p>
                   </div>
                 </div>
 
@@ -173,7 +173,7 @@ export default function ContactPage({ onNavigate }: ContactPageProps) {
                   </div>
                   <div>
                     <h3 className="font-semibold mb-1">Location</h3>
-                    <p className="text-primary-100">Kyoto, Japan</p>
+                    <p className="text-primary-100">Tokyo, Japan</p>
                   </div>
                 </div>
               </div>
