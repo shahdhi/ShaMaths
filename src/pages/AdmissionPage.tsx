@@ -115,9 +115,15 @@ export default function AdmissionPage({ onNavigate }: AdmissionPageProps) {
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <button
               onClick={() => onNavigate('home')}
-              className="px-8 py-3 bg-primary-700 text-white font-semibold rounded-full hover:bg-primary-800 transition-all duration-300 hover:scale-105 shadow-lg"
+              className="px-8 py-4 bg-primary-700 text-white font-semibold rounded-full hover:bg-primary-800 transition-all duration-300 hover:scale-105 shadow-lg"
             >
-              Back to Home
+              Return to Home
+            </button>
+            <button
+              onClick={() => onNavigate('resources')}
+              className="px-8 py-4 bg-white text-primary-700 font-semibold rounded-full border-2 border-primary-700 hover:bg-primary-50 transition-all duration-300 hover:scale-105"
+            >
+              Browse Resources
             </button>
           </div>
         </div>
@@ -127,9 +133,11 @@ export default function AdmissionPage({ onNavigate }: AdmissionPageProps) {
 
   return (
     <div className="min-h-screen bg-white pt-32 pb-24">
-      <div className="max-w-3xl mx-auto px-6 lg:px-8">
+      <div className="max-w-7xl mx-auto px-6 lg:px-8">
         <div className="text-center mb-16">
-          <h1 className="text-4xl font-serif font-bold text-gray-900 mb-4">Apply for Admission</h1>
+          <h1 className="text-5xl md:text-6xl font-serif font-bold text-gray-900 mb-6 animate-fade-in">
+            Apply for Admission
+          </h1>
           <div className="w-20 h-1 bg-primary-700 mx-auto mb-6"></div>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
             Begin your journey toward mathematical excellence with personalized instruction and
@@ -139,7 +147,9 @@ export default function AdmissionPage({ onNavigate }: AdmissionPageProps) {
 
         <section className="mb-20">
           <div className="text-center mb-12">
-            <h2 className="text-3xl font-serif font-bold text-gray-900 mb-4">Admission Process</h2>
+            <h2 className="text-3xl font-serif font-bold text-gray-900 mb-4">
+              Admission Process
+            </h2>
             <p className="text-gray-600 max-w-2xl mx-auto">
               Our straightforward process ensures we find the right fit for your learning goals
             </p>
@@ -160,25 +170,16 @@ export default function AdmissionPage({ onNavigate }: AdmissionPageProps) {
 
         <div className="max-w-3xl mx-auto">
           <div className="bg-white border border-gray-200 rounded-3xl p-8 md:p-12 shadow-lg">
-            <h2 className="text-3xl font-serif font-bold text-gray-900 mb-8">Application Form</h2>
+            <h2 className="text-3xl font-serif font-bold text-gray-900 mb-8">
+              Application Form
+            </h2>
 
-            <form
-              name="admission"
-              method="POST"
-              data-netlify="true"
-              netlify-honeypot="bot-field"
-              onSubmit={handleSubmit}
-              className="space-y-6"
-            >
-              <input type="hidden" name="form-name" value="admission" />
-              <p hidden>
-                <label>
-                  Don’t fill this out if you’re human: <input name="bot-field" />
-                </label>
-              </p>
-
+            <form onSubmit={handleSubmit} className="space-y-6">
               <div>
-                <label htmlFor="fullName" className="block text-sm font-medium text-gray-900 mb-2">
+                <label
+                  htmlFor="fullName"
+                  className="block text-sm font-medium text-gray-900 mb-2"
+                >
                   Full Name <span className="text-red-500">*</span>
                 </label>
                 <input
@@ -205,7 +206,7 @@ export default function AdmissionPage({ onNavigate }: AdmissionPageProps) {
                     value={formData.email}
                     onChange={handleChange}
                     required
-                                        className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-all outline-none"
+                    className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-all outline-none"
                     placeholder="your.email@example.com"
                   />
                 </div>
@@ -249,7 +250,10 @@ export default function AdmissionPage({ onNavigate }: AdmissionPageProps) {
               </div>
 
               <div>
-                <label htmlFor="startDate" className="block text-sm font-medium text-gray-900 mb-2">
+                <label
+                  htmlFor="startDate"
+                  className="block text-sm font-medium text-gray-900 mb-2"
+                >
                   Preferred Start Date <span className="text-red-500">*</span>
                 </label>
                 <input
@@ -312,7 +316,9 @@ export default function AdmissionPage({ onNavigate }: AdmissionPageProps) {
           </div>
 
           <div className="mt-12 bg-gradient-to-br from-gray-50 to-primary-50/30 rounded-3xl p-8 text-center">
-            <h3 className="text-2xl font-serif font-bold text-gray-900 mb-4">Have Questions?</h3>
+            <h3 className="text-2xl font-serif font-bold text-gray-900 mb-4">
+              Have Questions?
+            </h3>
             <p className="text-gray-600 mb-6">
               If you have any questions about the admission process or our courses, feel free to
               reach out.
