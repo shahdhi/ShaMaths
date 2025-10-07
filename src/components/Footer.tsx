@@ -83,16 +83,8 @@ export default function Footer({ onNavigate }: FooterProps) {
                 <span className="text-sm">+81 70-9328-3467</span>
               </li>
               <li className="flex items-start space-x-3">
-                <Phone size={18} className="mt-0.5 flex-shrink-0" />
-                <span className="text-sm">+94 72-202-0106</span>
-              </li>
-              <li className="flex items-start space-x-3">
                 <MapPin size={18} className="mt-0.5 flex-shrink-0" />
-                <span className="text-sm">Kyoto, Japan</span>
-              </li>
-              <li className="flex items-start space-x-3">
-                <MapPin size={18} className="mt-0.5 flex-shrink-0" />
-                <span className="text-sm">Colombo, Sri Lanka</span>
+                <span className="text-sm">Tokyo, Japan</span>
               </li>
             </ul>
           </div>
