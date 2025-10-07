@@ -1,4 +1,4 @@
-import { ArrowLeft, BookOpen, Clock, Users, Calendar, Award, CheckCircle, FileText, Target } from 'lucide-react';
+import { ArrowLeft, BookOpen, Clock, Users, Calendar, Award, CheckCircle } from 'lucide-react';
 
 interface CourseDetailPageProps {
   courseId: string;
@@ -7,601 +7,500 @@ interface CourseDetailPageProps {
 
 export default function CourseDetailPage({ courseId, onNavigate }: CourseDetailPageProps) {
   const courseDetails: Record<string, any> = {
-    cla1: {
-      title: 'CLA1 – Calculus & Linear Algebra 1',
-      level: 'University',
-      subtitle: 'Master the foundations of university-level mathematics',
+    'beginner-a1': {
+      title: 'Foundations of Algebra & Arithmetic',
+      level: 'Beginner',
       description:
-        'A comprehensive introduction to university-level mathematics, covering fundamental concepts in single-variable calculus and linear algebra. This course builds a solid foundation for advanced mathematical thinking and problem-solving, designed specifically for first-year university students.',
-      whoIsItFor: 'First-year university mathematics students, engineering students, and advanced learners seeking rigorous mathematical foundations.',
-      whyItMatters: 'CLA1 forms the cornerstone of higher mathematics. These concepts are essential for advanced studies in mathematics, physics, engineering, computer science, and economics.',
+        'Build confidence in numbers, operations, and algebraic thinking. This course provides a supportive environment for developing foundational mathematical skills that will serve as the basis for all future learning.',
       objectives: [
-        'Master fundamental calculus concepts including limits, derivatives, and integrals',
-        'Develop proficiency in linear algebra, including vectors, matrices, and linear systems',
-        'Apply mathematical concepts to solve real-world problems',
-        'Build strong analytical and rigorous proof-based thinking',
+        'Master arithmetic operations with confidence and accuracy',
+        'Understand and apply the order of operations correctly',
+        'Develop algebraic thinking through expressions and equations',
+        'Build problem-solving skills and mathematical intuition',
       ],
       topics: [
         {
-          title: 'Limits and Continuity',
+          title: 'Number Fundamentals',
           subtopics: [
-            'Intuitive understanding of limits',
-            'Formal epsilon-delta definition',
-            'Limit laws and techniques',
-            'Continuity and the Intermediate Value Theorem',
-          ],
-        },
-        {
-          title: 'Differentiation',
-          subtopics: [
-            'Definition and interpretation of derivatives',
-            'Differentiation rules and techniques',
-            'Applications: optimization and related rates',
-            'Implicit and higher-order differentiation',
-          ],
-        },
-        {
-          title: 'Integration',
-          subtopics: [
-            'Riemann sums and definite integrals',
-            'Fundamental Theorem of Calculus',
-            'Integration techniques and substitution',
-            'Applications: area, volume, and work',
-          ],
-        },
-        {
-          title: 'Vectors and Linear Systems',
-          subtopics: [
-            'Vector operations and geometric interpretation',
-            'Linear independence and span',
-            'Systems of linear equations',
-            'Gaussian elimination and row reduction',
-          ],
-        },
-        {
-          title: 'Matrices and Linear Transformations',
-          subtopics: [
-            'Matrix operations and algebra',
-            'Determinants and matrix inverses',
-            'Eigenvalues and eigenvectors',
-            'Applications to transformations',
-          ],
-        },
-      ],
-      format: 'Weekly 2-hour sessions combining rigorous theory, detailed worked examples, and guided problem-solving',
-      schedule: 'Flexible scheduling with morning, afternoon, and evening options',
-      materials: [
-        'Custom-designed textbook and comprehensive course notes',
-        'Weekly problem sets with detailed solutions',
-        'Video recordings of all sessions',
-        'Past examination papers and model solutions',
-      ],
-      teachingStyle: 'Our approach emphasizes deep conceptual understanding over rote memorization. Each session builds intuition through visual reasoning, then progresses to formal mathematical rigor. We focus on developing problem-solving strategies and mathematical maturity.',
-      prerequisites: 'Strong foundation in A-Level mathematics or equivalent',
-    },
-    'ial-pure': {
-      title: 'IAL Pure Mathematics (P1, P2, P3, P4)',
-      level: 'A-Level',
-      subtitle: 'Complete A-Level pure mathematics mastery',
-      description:
-        'Comprehensive coverage of all four IAL pure mathematics modules (P1-P4) with emphasis on conceptual understanding and exam technique. This course is designed to take students from foundational algebra through to advanced calculus and proof.',
-      whoIsItFor: 'A-Level students pursuing IAL qualifications, students preparing for university mathematics, and learners seeking rigorous mathematical training.',
-      whyItMatters: 'Pure mathematics develops logical reasoning and problem-solving skills essential for STEM careers. Excellence in these modules opens doors to top universities worldwide.',
-      objectives: [
-        'Master all topics across P1, P2, P3, and P4 modules',
-        'Develop exam technique and time management skills',
-        'Build strong algebraic manipulation and proof skills',
-        'Achieve confidence in tackling complex mathematical problems',
-      ],
-      topics: [
-        {
-          title: 'Algebra and Functions (P1, P2)',
-          subtopics: [
-            'Algebraic expressions and manipulation',
-            'Quadratic equations and inequalities',
-            'Polynomials and factor theorem',
-            'Functions, domain, and range',
-          ],
-        },
-        {
-          title: 'Coordinate Geometry (P1, P3)',
-          subtopics: [
-            'Straight lines and circles',
-            'Parametric equations',
-            'Coordinate geometry applications',
-            'Loci and regions',
-          ],
-        },
-        {
-          title: 'Trigonometry (P2, P3)',
-          subtopics: [
-            'Trigonometric ratios and identities',
-            'Solving trigonometric equations',
-            'Compound and double angle formulas',
-            'Trigonometric graphs and transformations',
-          ],
-        },
-        {
-          title: 'Calculus (P1, P2, P3, P4)',
-          subtopics: [
-            'Differentiation from first principles',
-            'Integration techniques',
-            'Applications to rates of change',
-            'Differential equations',
-          ],
-        },
-        {
-          title: 'Series and Proof (P3, P4)',
-          subtopics: [
-            'Sequences and series',
-            'Binomial expansion',
-            'Mathematical induction',
-            'Proof by contradiction',
-          ],
-        },
-      ],
-      format: 'Modular tutoring sessions aligned with each paper, 90 minutes per session',
-      schedule: 'Exam-focused schedule aligned with IAL examination dates',
-      materials: [
-        'IAL endorsed textbooks for all modules',
-        'Sha Maths custom worksheet collection',
-        'Past paper compilations with mark schemes',
-        'Formula sheets and revision guides',
-      ],
-      teachingStyle: 'We combine conceptual teaching with intensive exam practice. Each topic is mastered through understanding, then reinforced with past paper questions. Special focus on common exam pitfalls and mark-winning techniques.',
-      prerequisites: 'IGCSE Mathematics or equivalent',
-    },
-    'ial-mechanics': {
-      title: 'IAL Mechanics (M1, M2, M3)',
-      level: 'A-Level',
-      subtitle: 'Physics meets mathematics',
-      description:
-        'Complete coverage of IAL mechanics modules focusing on the mathematical modeling of physical systems. From basic kinematics to advanced dynamics, this course develops both conceptual understanding and problem-solving prowess.',
-      whoIsItFor: 'A-Level students taking mechanics modules, aspiring engineers and physicists, and students who want to understand how mathematics describes the physical world.',
-      whyItMatters: 'Mechanics bridges pure mathematics and physics, essential for engineering, physics, and applied mathematics degrees. Strong mechanics skills are highly valued by top universities.',
-      objectives: [
-        'Master kinematics and dynamics across all three modules',
-        'Develop intuition for physical systems through mathematical modeling',
-        'Excel at applying Newton\'s laws to complex scenarios',
-        'Build confidence with force diagrams and vector analysis',
-      ],
-      topics: [
-        {
-          title: 'Kinematics (M1, M2)',
-          subtopics: [
-            'Motion in one dimension',
-            'Motion in two dimensions and projectiles',
-            'Variable acceleration',
-            'Calculus in kinematics',
-          ],
-        },
-        {
-          title: 'Forces and Newton\'s Laws (M1, M2, M3)',
-          subtopics: [
-            'Force as a vector',
-            'Newton\'s laws of motion',
-            'Connected particles and pulleys',
-            'Friction and inclined planes',
-          ],
-        },
-        {
-          title: 'Energy and Work (M2, M3)',
-          subtopics: [
-            'Work done by constant and variable forces',
-            'Kinetic and potential energy',
-            'Conservation of energy',
-            'Power and efficiency',
-          ],
-        },
-        {
-          title: 'Momentum and Impulse (M2, M3)',
-          subtopics: [
-            'Conservation of momentum',
-            'Impulse and impact',
-            'Collisions and restitution',
-            'Advanced momentum problems',
-          ],
-        },
-        {
-          title: 'Circular Motion (M3)',
-          subtopics: [
-            'Uniform circular motion',
-            'Angular velocity',
-            'Centripetal force and acceleration',
-            'Vertical circles and motion in a plane',
-          ],
-        },
-      ],
-      format: 'Conceptual sessions with visual modeling followed by intensive problem-solving practice',
-      schedule: 'Aligned with IAL examination schedule, flexible session times',
-      materials: [
-        'IAL mechanics textbooks',
-        'Visual aids and simulation tools',
-        'Extensive past paper collection',
-        'Custom problem sets with real-world applications',
-      ],
-      teachingStyle: 'Mechanics requires both conceptual understanding and problem-solving technique. We start with physical intuition, build mathematical models, then practice extensively. Special emphasis on drawing accurate diagrams and setting up equations correctly.',
-      prerequisites: 'IGCSE Mathematics and concurrent study of IAL Pure Mathematics',
-    },
-    'ial-further-pure': {
-      title: 'IAL Further Pure Mathematics (FP1, FP2, FP3)',
-      level: 'A-Level',
-      subtitle: 'Advanced mathematics for high achievers',
-      description:
-        'Exploration of advanced mathematical topics beyond standard A-Level. This course covers complex numbers, advanced matrices, differential equations, and more, preparing students for university-level mathematics.',
-      whoIsItFor: 'High-achieving A-Level students aiming for top mathematics, physics, or engineering programs. Ideal for those passionate about mathematical depth and beauty.',
-      whyItMatters: 'Further Pure Mathematics distinguishes exceptional candidates. These advanced topics provide a significant advantage in university applications and prepare students for undergraduate mathematics.',
-      objectives: [
-        'Master complex numbers and their geometric interpretation',
-        'Develop proficiency in advanced matrix algebra',
-        'Solve differential equations using multiple techniques',
-        'Build mathematical sophistication and proof skills',
-      ],
-      topics: [
-        {
-          title: 'Complex Numbers (FP1, FP2)',
-          subtopics: [
-            'Complex arithmetic and algebra',
-            'Argand diagrams and geometric interpretation',
-            'De Moivre\'s theorem and applications',
-            'Complex roots and polynomials',
-          ],
-        },
-        {
-          title: 'Matrix Algebra (FP1, FP3)',
-          subtopics: [
-            'Matrix operations and inverses',
-            'Linear transformations',
-            'Eigenvalues and eigenvectors',
-            'Diagonalization and applications',
-          ],
-        },
-        {
-          title: 'Differential Equations (FP2, FP3)',
-          subtopics: [
-            'First-order differential equations',
-            'Second-order linear differential equations',
-            'Applications to physical systems',
-            'Series solutions and special cases',
-          ],
-        },
-        {
-          title: 'Polar Coordinates (FP2)',
-          subtopics: [
-            'Polar coordinate system',
-            'Converting between Cartesian and polar',
-            'Polar curves and their properties',
-            'Area and arc length in polar form',
-          ],
-        },
-        {
-          title: 'Vectors in 3D (FP3)',
-          subtopics: [
-            'Vector algebra in three dimensions',
-            'Lines and planes in 3D space',
-            'Scalar and vector products',
-            'Applications to geometry',
-          ],
-        },
-      ],
-      format: 'Deep-dive sessions emphasizing understanding over memorization, with visual modeling tools',
-      schedule: 'Flexible scheduling aligned with IAL examination dates',
-      materials: [
-        'IAL Further Pure textbooks',
-        'Sha Maths advanced problem collections',
-        'Visual modeling software for complex topics',
-        'University-level supplementary reading',
-      ],
-      teachingStyle: 'Further Pure requires mathematical maturity. We focus on building deep intuition, exploring connections between topics, and developing rigorous proof skills. Sessions include visualization tools and real-world applications.',
-      prerequisites: 'Strong performance in IAL Pure Mathematics (P1, P2)',
-    },
-    'igcse-maths-a': {
-      title: 'IGCSE Mathematics A',
-      level: 'IGCSE',
-      subtitle: 'Build solid mathematical foundations',
-      description:
-        'Comprehensive preparation for IGCSE Mathematics A (Core curriculum), covering all fundamental topics with emphasis on understanding and exam technique. Designed to build confidence and mathematical fluency.',
-      whoIsItFor: 'IGCSE students taking the core mathematics curriculum, students building foundations for A-Level study, and learners seeking solid mathematical grounding.',
-      whyItMatters: 'Strong IGCSE results open doors to advanced mathematics courses and demonstrate essential problem-solving skills valued across all disciplines.',
-      objectives: [
-        'Master all topics in the IGCSE A curriculum',
-        'Develop strong number sense and algebraic skills',
-        'Build exam confidence and time management',
-        'Create solid foundation for A-Level mathematics',
-      ],
-      topics: [
-        {
-          title: 'Number and Algebra',
-          subtopics: [
-            'Number operations and BIDMAS',
+            'Place value and number systems',
             'Fractions, decimals, and percentages',
-            'Algebraic manipulation and equations',
-            'Sequences and patterns',
+            'Operations with rational numbers',
+            'Properties of numbers',
           ],
         },
         {
-          title: 'Geometry and Mensuration',
+          title: 'Order of Operations',
           subtopics: [
-            'Properties of shapes and angles',
-            'Area and perimeter calculations',
-            'Volume and surface area',
-            'Pythagoras theorem and trigonometry',
+            'BIDMAS/PEMDAS rules',
+            'Evaluating complex expressions',
+            'Common mistakes and how to avoid them',
+            'Applications to real problems',
+          ],
+        },
+        {
+          title: 'Introduction to Algebra',
+          subtopics: [
+            'Variables and expressions',
+            'Simplifying algebraic expressions',
+            'Solving linear equations',
+            'Word problems and modeling',
+          ],
+        },
+        {
+          title: 'Linear Relationships',
+          subtopics: [
+            'Introduction to graphing',
+            'Plotting points and lines',
+            'Slope and intercept',
+            'Real-world linear models',
+          ],
+        },
+      ],
+      format: 'Weekly 90-minute sessions with guided practice and encouragement',
+      schedule: 'Flexible scheduling with morning, afternoon, and evening options available',
+      materials: [
+        'Comprehensive workbook with practice problems',
+        'Visual aids and manipulatives',
+        'Online practice resources',
+        'Progress tracking tools',
+      ],
+      prerequisites: 'None – open to all students',
+      assessment: 'Regular practice sets and progress checks (non-intimidating format)',
+    },
+    'beginner-a2': {
+      title: 'Geometry & Visual Reasoning',
+      level: 'Beginner',
+      description:
+        'Explore shapes, space, and measurement through intuitive problem-solving. Develop spatial reasoning and geometric intuition that connects mathematics to the physical world.',
+      objectives: [
+        'Understand properties of angles, shapes, and solids',
+        'Calculate perimeter, area, and volume with confidence',
+        'Apply geometric concepts to real-world situations',
+        'Develop spatial visualization and reasoning skills',
+      ],
+      topics: [
+        {
+          title: 'Angles and Shapes',
+          subtopics: [
+            'Types of angles and angle relationships',
+            'Properties of triangles and quadrilaterals',
+            'Polygon properties',
+            'Angle calculations and proofs',
+          ],
+        },
+        {
+          title: 'Measurement',
+          subtopics: [
+            'Perimeter and circumference',
+            'Area of 2D shapes',
+            'Surface area of solids',
+            'Volume of 3D objects',
           ],
         },
         {
           title: 'Coordinate Geometry',
           subtopics: [
-            'Plotting points and lines',
-            'Gradient and equation of a line',
-            'Distance between points',
-            'Graphs of functions',
+            'Cartesian plane basics',
+            'Distance and midpoint',
+            'Plotting shapes on coordinates',
+            'Introduction to geometric proofs',
           ],
         },
         {
-          title: 'Statistics and Data',
+          title: 'Transformations',
           subtopics: [
-            'Data collection and representation',
-            'Mean, median, and mode',
-            'Range and statistical measures',
-            'Interpreting graphs and charts',
-          ],
-        },
-        {
-          title: 'Probability',
-          subtopics: [
-            'Basic probability concepts',
-            'Probability of combined events',
-            'Tree diagrams and sample spaces',
-            'Expected values',
+            'Reflection, rotation, translation',
+            'Symmetry and patterns',
+            'Congruence and similarity',
+            'Practical applications',
           ],
         },
       ],
-      format: 'Foundation-level tutoring with patient, step-by-step instruction',
-      schedule: 'Year-round enrollment with flexible session times',
+      format: 'Weekly 90-minute sessions with hands-on activities',
+      schedule: 'Flexible scheduling with morning, afternoon, and evening options available',
       materials: [
-        'IGCSE endorsed textbooks',
-        'Sha Maths revision sheets and worksheets',
-        'Past paper collections with detailed solutions',
+        'Geometry workbook with diagrams',
+        'Drawing tools and manipulatives',
         'Interactive online resources',
+        'Real-world problem collections',
       ],
-      teachingStyle: 'We build confidence through mastery of fundamentals. Each concept is broken down into manageable steps, practiced thoroughly, then applied to exam questions. Emphasis on clear explanations and patient guidance.',
-      prerequisites: 'Basic arithmetic skills',
+      prerequisites: 'Course A1 or equivalent basic arithmetic skills',
+      assessment: 'Regular practice with visual and practical assessments',
     },
-    'igcse-maths-b': {
-      title: 'IGCSE Mathematics B',
-      level: 'IGCSE',
-      subtitle: 'Excel in extended mathematics',
+    'intermediate-b1': {
+      title: 'Algebraic Techniques & Functions',
+      level: 'Intermediate',
       description:
-        'Comprehensive preparation for IGCSE Mathematics B (Extended curriculum), covering advanced topics and challenging problem-solving. Designed for high-achieving students preparing for A-Level mathematics.',
-      whoIsItFor: 'High-achieving IGCSE students taking extended mathematics, students planning to pursue A-Level mathematics, and learners seeking mathematical excellence.',
-      whyItMatters: 'Extended IGCSE mathematics provides excellent preparation for A-Level success and demonstrates strong mathematical aptitude to universities and employers.',
+        'Transition from basic algebra to powerful problem-solving tools. This course bridges intuitive understanding to formal mathematical techniques.',
       objectives: [
-        'Excel in all extended curriculum topics',
-        'Develop advanced problem-solving strategies',
-        'Build confidence with challenging mathematical concepts',
-        'Prepare thoroughly for A-Level mathematics',
+        'Master quadratic equations and factorization techniques',
+        'Understand and work with function notation',
+        'Solve systems of equations with confidence',
+        'Apply algebraic methods to complex problems',
       ],
       topics: [
         {
+          title: 'Quadratic Expressions',
+          subtopics: [
+            'Expanding and factorizing',
+            'Completing the square',
+            'Quadratic formula',
+            'Applications and modeling',
+          ],
+        },
+        {
+          title: 'Functions',
+          subtopics: [
+            'Function notation and terminology',
+            'Domain and range',
+            'Composite and inverse functions',
+            'Graphing techniques',
+          ],
+        },
+        {
+          title: 'Equations and Inequalities',
+          subtopics: [
+            'Simultaneous equations (linear and non-linear)',
+            'Solving inequalities',
+            'Absolute value (modulus)',
+            'Graphical solutions',
+          ],
+        },
+        {
           title: 'Advanced Algebra',
           subtopics: [
-            'Quadratic equations and factorization',
-            'Simultaneous equations (linear and non-linear)',
-            'Inequalities and their graphs',
-            'Functions and inverse functions',
+            'Polynomial operations',
+            'Exponential functions',
+            'Logarithms',
+            'Applications to growth and decay',
+          ],
+        },
+      ],
+      format: 'Weekly 2-hour sessions combining theory and extensive practice',
+      schedule: 'Flexible scheduling with morning, afternoon, and evening options available',
+      materials: [
+        'Comprehensive course notes',
+        'Problem sets with solutions',
+        'Graphing tools and software',
+        'Past papers and practice exams',
+      ],
+      prerequisites: 'Course A1 or solid foundation in basic algebra',
+      assessment: 'Regular problem sets and periodic assessments',
+    },
+    'intermediate-b2': {
+      title: 'Trigonometry & Introductory Calculus',
+      level: 'Intermediate',
+      description:
+        'Discover the power of angles and rates of change. Connect algebraic concepts to real-world applications through trigonometry and the fundamentals of calculus.',
+      objectives: [
+        'Master trigonometric ratios and identities',
+        'Understand the concept of limits and derivatives',
+        'Apply differentiation to real-world problems',
+        'Build foundations for advanced calculus',
+      ],
+      topics: [
+        {
+          title: 'Trigonometry Fundamentals',
+          subtopics: [
+            'Trigonometric ratios (sin, cos, tan)',
+            'Unit circle and radian measure',
+            'Trigonometric identities',
+            'Solving trigonometric equations',
           ],
         },
         {
-          title: 'Trigonometry',
+          title: 'Trigonometric Graphs',
           subtopics: [
-            'Sine, cosine, and tangent ratios',
-            'Solving right and non-right triangles',
-            'Trigonometric graphs and transformations',
-            'Applications to real-world problems',
+            'Graphs of sin, cos, and tan',
+            'Amplitude, period, and phase shift',
+            'Transformations of trig functions',
+            'Applications to waves and oscillations',
           ],
         },
         {
-          title: 'Functions and Graphs',
+          title: 'Introduction to Differentiation',
           subtopics: [
-            'Linear, quadratic, and cubic functions',
-            'Exponential and reciprocal graphs',
-            'Graph transformations',
-            'Interpreting complex graphs',
+            'Limits and continuity',
+            'Definition of the derivative',
+            'Basic differentiation rules',
+            'Rates of change and velocity',
           ],
         },
         {
-          title: 'Calculus Fundamentals',
+          title: 'Applications of Calculus',
           subtopics: [
-            'Gradient of a curve',
-            'Basic differentiation',
-            'Finding maximum and minimum points',
+            'Tangent lines and approximation',
+            'Optimization basics',
+            'Motion and kinematics',
             'Introduction to integration',
           ],
         },
+      ],
+      format: 'Weekly 2-hour sessions with theory and applications',
+      schedule: 'Flexible scheduling with morning, afternoon, and evening options available',
+      materials: [
+        'Detailed course notes',
+        'Practice problems with solutions',
+        'Graphing calculator guidance',
+        'Online visualization tools',
+      ],
+      prerequisites: 'Course B1 or equivalent algebraic proficiency',
+      assessment: 'Regular problem sets and mid-course assessments',
+    },
+    'advanced-c1': {
+      title: 'Calculus & Mathematical Modeling',
+      level: 'Advanced',
+      description:
+        'Dive deep into calculus and its real-world applications. Master the mathematical tools that power science, engineering, and advanced problem-solving.',
+      objectives: [
+        'Master advanced differentiation techniques',
+        'Develop proficiency in integration methods',
+        'Solve differential equations',
+        'Apply calculus to complex modeling problems',
+      ],
+      topics: [
         {
-          title: 'Advanced Problem Solving',
+          title: 'Advanced Differentiation',
           subtopics: [
-            'Multi-step problems',
-            'Proof and reasoning',
-            'Vectors and transformations',
-            'Advanced statistics',
+            'Chain rule applications',
+            'Product and quotient rules',
+            'Implicit differentiation',
+            'Related rates problems',
+          ],
+        },
+        {
+          title: 'Integration Techniques',
+          subtopics: [
+            'Integration by substitution',
+            'Integration by parts',
+            'Partial fractions',
+            'Applications: area, volume, work',
+          ],
+        },
+        {
+          title: 'Differential Equations',
+          subtopics: [
+            'First-order differential equations',
+            'Separable equations',
+            'Applications to growth models',
+            'Introduction to second-order equations',
+          ],
+        },
+        {
+          title: 'Mathematical Modeling',
+          subtopics: [
+            'Optimization problems',
+            'Modeling with functions',
+            'Curve sketching',
+            'Real-world applications',
           ],
         },
       ],
-      format: 'Exam-focused sessions with emphasis on challenging problems and deep understanding',
-      schedule: 'Year-round enrollment with flexible scheduling',
+      format: 'Weekly 2-hour sessions with rigorous theory and applications',
+      schedule: 'Flexible scheduling with morning, afternoon, and evening options available',
       materials: [
-        'Extended IGCSE textbooks',
-        'Sha Maths advanced problem collections',
-        'Past paper compilations (extended level)',
-        'Preparation materials for A-Level transition',
+        'Comprehensive textbook and notes',
+        'Problem sets with detailed solutions',
+        'Past university exam papers',
+        'Computational tools and software',
       ],
-      teachingStyle: 'Extended IGCSE requires both conceptual depth and problem-solving agility. We challenge students with harder problems, teach efficient techniques, and build mathematical confidence. Strong focus on exam strategy and avoiding common pitfalls.',
-      prerequisites: 'Strong performance in lower secondary mathematics',
+      prerequisites: 'Course B2 or strong foundation in introductory calculus',
+      assessment: 'Regular assignments, mid-term, and final examination',
+    },
+    'advanced-c2': {
+      title: 'Abstract Reasoning & Complex Numbers',
+      level: 'Advanced',
+      description:
+        'Explore elegant mathematics beyond the real number line. Develop abstract thinking skills and mathematical maturity needed for university-level mathematics.',
+      objectives: [
+        'Master complex number arithmetic and geometry',
+        'Develop rigorous proof techniques',
+        'Understand linear transformations and matrices',
+        'Build mathematical maturity and abstract reasoning',
+      ],
+      topics: [
+        {
+          title: 'Complex Numbers',
+          subtopics: [
+            'Arithmetic with complex numbers',
+            'Polar form and Euler\'s formula',
+            'De Moivre\'s theorem',
+            'Geometric interpretation',
+          ],
+        },
+        {
+          title: 'Mathematical Proof',
+          subtopics: [
+            'Direct proof techniques',
+            'Proof by contradiction',
+            'Mathematical induction',
+            'Proof writing and communication',
+          ],
+        },
+        {
+          title: 'Matrices and Vectors',
+          subtopics: [
+            'Matrix operations',
+            'Determinants and inverses',
+            'Linear transformations',
+            'Eigenvalues and eigenvectors',
+          ],
+        },
+        {
+          title: 'Sequences and Series',
+          subtopics: [
+            'Convergence and divergence',
+            'Tests for convergence',
+            'Power series',
+            'Taylor and Maclaurin series',
+          ],
+        },
+      ],
+      format: 'Weekly 2-hour sessions emphasizing rigor and understanding',
+      schedule: 'Flexible scheduling with morning, afternoon, and evening options available',
+      materials: [
+        'Advanced course notes',
+        'Challenging problem sets',
+        'University-level resources',
+        'Proof-writing guides',
+      ],
+      prerequisites: 'Course C1 or equivalent advanced mathematics background',
+      assessment: 'Regular proof assignments and comprehensive examinations',
     },
   };
 
-  const course = courseDetails[courseId] || courseDetails['cla1'];
+  const course = courseDetails[courseId] || courseDetails['beginner-a1'];
 
   return (
-    <div className="min-h-screen bg-white">
-      <div className="bg-gradient-to-br from-primary-700 via-primary-800 to-primary-900 pt-32 pb-20">
-        <div className="max-w-5xl mx-auto px-6 lg:px-8">
-          <button
-            onClick={() => onNavigate('courses')}
-            className="flex items-center text-white/90 hover:text-white font-medium mb-8 group transition-all duration-300 opacity-0 animate-fade-in"
-          >
-            <ArrowLeft
-              size={20}
-              className="mr-2 group-hover:-translate-x-1 transition-transform"
-            />
-            Back to Courses
-          </button>
+    <div className="min-h-screen bg-white pt-32 pb-24">
+      <div className="max-w-5xl mx-auto px-6 lg:px-8">
+        <button
+          onClick={() => onNavigate('courses')}
+          className="flex items-center text-primary-700 hover:text-primary-800 font-medium mb-8 group transition-colors"
+        >
+          <ArrowLeft
+            size={20}
+            className="mr-2 group-hover:-translate-x-1 transition-transform"
+          />
+          Back to Courses
+        </button>
 
-          <div className="opacity-0 animate-fade-in-up animate-delay-100">
-            <div className="inline-block px-4 py-1 bg-white/20 backdrop-blur-sm rounded-full text-sm font-medium mb-4 text-white">
-              {course.level}
-            </div>
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-serif font-bold mb-4 text-white">
-              {course.title}
-            </h1>
-            <p className="text-xl md:text-2xl text-primary-100 mb-6 font-light">
-              {course.subtitle}
-            </p>
-            <p className="text-lg text-primary-50 leading-relaxed max-w-3xl">
-              {course.description}
-            </p>
+        <div className="bg-gradient-to-br from-primary-700 to-primary-900 rounded-3xl p-12 text-white mb-12 shadow-2xl">
+          <div className="inline-block px-4 py-1 bg-white/20 rounded-full text-sm font-medium mb-4">
+            {course.level}
           </div>
+          <h1 className="text-4xl md:text-5xl font-serif font-bold mb-4">{course.title}</h1>
+          <p className="text-xl text-primary-100 leading-relaxed max-w-3xl">
+            {course.description}
+          </p>
         </div>
-      </div>
 
-      <div className="max-w-5xl mx-auto px-6 lg:px-8 py-16">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-16 opacity-0 animate-fade-in-up animate-delay-200">
-          <div className="bg-gray-50 rounded-2xl p-6 hover-lift">
-            <Clock size={32} className="text-primary-700 mb-3" />
-            <h3 className="font-semibold text-gray-900 mb-2 text-lg">Duration</h3>
-            <p className="text-gray-600 leading-relaxed">{course.format}</p>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
+          <div className="bg-gray-50 rounded-2xl p-6 hover:shadow-lg transition-shadow">
+            <Clock size={28} className="text-primary-700 mb-3" />
+            <h3 className="font-semibold text-gray-900 mb-2">Duration</h3>
+            <p className="text-gray-600">{course.format}</p>
           </div>
-          <div className="bg-gray-50 rounded-2xl p-6 hover-lift">
-            <Calendar size={32} className="text-primary-700 mb-3" />
-            <h3 className="font-semibold text-gray-900 mb-2 text-lg">Schedule</h3>
-            <p className="text-gray-600 leading-relaxed">{course.schedule}</p>
+          <div className="bg-gray-50 rounded-2xl p-6 hover:shadow-lg transition-shadow">
+            <Calendar size={28} className="text-primary-700 mb-3" />
+            <h3 className="font-semibold text-gray-900 mb-2">Schedule</h3>
+            <p className="text-gray-600">{course.schedule}</p>
           </div>
-          <div className="bg-gray-50 rounded-2xl p-6 hover-lift">
-            <Users size={32} className="text-primary-700 mb-3" />
-            <h3 className="font-semibold text-gray-900 mb-2 text-lg">Class Size</h3>
-            <p className="text-gray-600 leading-relaxed">Small groups or individual</p>
+          <div className="bg-gray-50 rounded-2xl p-6 hover:shadow-lg transition-shadow">
+            <Users size={28} className="text-primary-700 mb-3" />
+            <h3 className="font-semibold text-gray-900 mb-2">Class Size</h3>
+            <p className="text-gray-600">Small groups or individual</p>
           </div>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16 opacity-0 animate-fade-in-up animate-delay-300">
-          <div className="bg-gradient-to-br from-primary-50 to-white border border-primary-100 rounded-2xl p-8 hover-lift">
-            <Target size={28} className="text-primary-700 mb-4" />
-            <h3 className="text-2xl font-serif font-bold text-gray-900 mb-3">Who Is This For?</h3>
-            <p className="text-gray-700 leading-relaxed">{course.whoIsItFor}</p>
-          </div>
-          <div className="bg-gradient-to-br from-accent-50 to-white border border-accent-100 rounded-2xl p-8 hover-lift">
-            <Award size={28} className="text-accent-700 mb-4" />
-            <h3 className="text-2xl font-serif font-bold text-gray-900 mb-3">Why It Matters</h3>
-            <p className="text-gray-700 leading-relaxed">{course.whyItMatters}</p>
-          </div>
-        </div>
-
-        <section className="mb-16 opacity-0 animate-fade-in-up animate-delay-400">
-          <h2 className="text-3xl md:text-4xl font-serif font-bold text-gray-900 mb-8 flex items-center">
-            <CheckCircle size={32} className="mr-3 text-primary-700" />
+        <section className="mb-12">
+          <h2 className="text-3xl font-serif font-bold text-gray-900 mb-6 flex items-center">
+            <Award size={28} className="mr-3 text-primary-700" />
             Learning Objectives
           </h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div className="space-y-4">
             {course.objectives.map((objective: string, index: number) => (
-              <div key={index} className="flex items-start bg-gray-50 rounded-xl p-6 hover-lift">
-                <CheckCircle size={24} className="text-accent-600 mr-4 mt-0.5 flex-shrink-0" />
-                <p className="text-gray-700 text-lg leading-relaxed">{objective}</p>
+              <div key={index} className="flex items-start">
+                <CheckCircle size={24} className="text-accent-600 mr-3 mt-0.5 flex-shrink-0" />
+                <p className="text-gray-700 text-lg">{objective}</p>
               </div>
             ))}
           </div>
         </section>
 
-        <section className="mb-16 opacity-0 animate-fade-in-up animate-delay-500">
-          <h2 className="text-3xl md:text-4xl font-serif font-bold text-gray-900 mb-8 flex items-center">
-            <BookOpen size={32} className="mr-3 text-primary-700" />
-            Topics Covered
+        <section className="mb-12">
+          <h2 className="text-3xl font-serif font-bold text-gray-900 mb-8 flex items-center">
+            <BookOpen size={28} className="mr-3 text-primary-700" />
+            Course Content
           </h2>
           <div className="space-y-6">
             {course.topics.map((topic: any, index: number) => (
               <div
                 key={index}
-                className="bg-white border border-gray-200 rounded-2xl p-8 hover-lift"
+                className="bg-white border border-gray-200 rounded-2xl p-8 hover:shadow-lg transition-shadow"
               >
-                <h3 className="text-xl md:text-2xl font-semibold text-gray-900 mb-4 font-serif">{topic.title}</h3>
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                <h3 className="text-xl font-semibold text-gray-900 mb-4">{topic.title}</h3>
+                <ul className="space-y-2">
                   {topic.subtopics.map((subtopic: string, idx: number) => (
-                    <div key={idx} className="flex items-start text-gray-700 transition-all duration-300 hover:translate-x-1">
-                      <span className="text-primary-700 mr-3 text-lg">•</span>
-                      <span className="leading-relaxed">{subtopic}</span>
-                    </div>
+                    <li key={idx} className="flex items-start text-gray-700">
+                      <span className="text-primary-700 mr-3">•</span>
+                      {subtopic}
+                    </li>
                   ))}
-                </div>
+                </ul>
               </div>
             ))}
           </div>
         </section>
 
-        <section className="mb-16 opacity-0 animate-fade-in-up" style={{ animationDelay: '600ms' }}>
-          <h2 className="text-3xl md:text-4xl font-serif font-bold text-gray-900 mb-8">
-            Teaching Style & Approach
+        <section className="mb-12">
+          <h2 className="text-3xl font-serif font-bold text-gray-900 mb-6">
+            Teaching Approach
           </h2>
-          <div className="bg-gradient-to-br from-gray-50 to-primary-50/30 rounded-2xl p-10">
-            <p className="text-gray-700 text-lg leading-relaxed mb-8">
-              {course.teachingStyle}
+          <div className="bg-gray-50 rounded-2xl p-8">
+            <p className="text-gray-700 text-lg leading-relaxed mb-6">
+              Our teaching philosophy emphasizes deep understanding over memorization. Each
+              session combines clear theoretical explanations with extensive worked examples and
+              guided problem-solving practice.
             </p>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               <div>
-                <h4 className="font-semibold text-gray-900 mb-4 text-xl flex items-center">
-                  <FileText size={22} className="mr-2 text-primary-700" />
-                  Course Materials
-                </h4>
-                <ul className="space-y-3">
+                <h4 className="font-semibold text-gray-900 mb-3">Course Materials</h4>
+                <ul className="space-y-2">
                   {course.materials.map((material: string, index: number) => (
-                    <li key={index} className="flex items-start text-gray-700 leading-relaxed">
-                      <CheckCircle size={20} className="text-primary-700 mr-3 mt-0.5 flex-shrink-0" />
+                    <li key={index} className="flex items-start text-gray-700">
+                      <CheckCircle size={18} className="text-primary-700 mr-2 mt-0.5" />
                       {material}
                     </li>
                   ))}
                 </ul>
               </div>
               <div>
-                <h4 className="font-semibold text-gray-900 mb-4 text-xl flex items-center">
-                  <Award size={22} className="mr-2 text-accent-700" />
-                  Prerequisites
-                </h4>
-                <p className="text-gray-700 leading-relaxed mb-6">{course.prerequisites}</p>
-                <div className="bg-white rounded-xl p-6 border border-gray-200">
-                  <p className="text-sm text-gray-600 leading-relaxed">
-                    All sessions conducted in English with comprehensive materials provided. Flexible scheduling available to accommodate your timezone and commitments.
-                  </p>
-                </div>
+                <h4 className="font-semibold text-gray-900 mb-3">Prerequisites</h4>
+                <p className="text-gray-700 mb-4">{course.prerequisites}</p>
+                <h4 className="font-semibold text-gray-900 mb-3">Assessment</h4>
+                <p className="text-gray-700">{course.assessment}</p>
               </div>
             </div>
           </div>
         </section>
 
-        <div className="bg-gradient-to-br from-primary-700 to-primary-900 rounded-3xl p-12 text-white text-center opacity-0 animate-scale-in" style={{ animationDelay: '700ms' }}>
-          <h2 className="text-3xl md:text-4xl font-serif font-bold mb-4">Ready to Begin?</h2>
-          <p className="text-xl text-primary-100 mb-8 max-w-2xl mx-auto leading-relaxed">
-            Start your journey toward mathematical mastery with expert guidance, personalized
-            instruction, and comprehensive support.
+        <div className="bg-gradient-to-br from-primary-700 to-primary-900 rounded-3xl p-12 text-white text-center">
+          <h2 className="text-3xl font-serif font-bold mb-4">Ready to Enroll?</h2>
+          <p className="text-xl text-primary-100 mb-8 max-w-2xl mx-auto">
+            Start your journey toward mathematical mastery with expert guidance and personalized
+            instruction.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <button
               onClick={() => onNavigate('admission')}
-              className="px-10 py-4 bg-white text-primary-700 font-semibold rounded-full hover:bg-gray-50 transition-all duration-300 hover:scale-105 shadow-xl text-lg"
+              className="px-8 py-4 bg-white text-primary-700 font-semibold rounded-full hover:bg-gray-50 transition-all duration-300 hover:scale-105 shadow-xl"
             >
               Apply for This Course
             </button>
             <button
               onClick={() => onNavigate('contact')}
-              className="px-10 py-4 bg-transparent text-white font-semibold rounded-full border-2 border-white hover:bg-white/10 transition-all duration-300 hover:scale-105 text-lg"
+              className="px-8 py-4 bg-transparent text-white font-semibold rounded-full border-2 border-white hover:bg-white/10 transition-all duration-300 hover:scale-105"
             >
               Ask Questions
             </button>
