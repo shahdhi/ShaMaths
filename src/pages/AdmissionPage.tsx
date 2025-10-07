@@ -40,8 +40,12 @@ export default function AdmissionPage({ onNavigate }: AdmissionPageProps) {
   };
 
   const courses = [
-    'CLA1 – Calculus & Linear Algebra 1',
-    'CLA2 – Advanced Calculus & Linear Algebra',
+    'Foundations of Algebra & Arithmetic (Beginner)',
+    'Geometry & Visual Reasoning (Beginner)',
+    'Algebraic Techniques & Functions (Intermediate)',
+    'Trigonometry & Introductory Calculus (Intermediate)',
+    'Calculus & Mathematical Modeling (Advanced)',
+    'Abstract Reasoning & Complex Numbers (Advanced)',
     'IAL Pure Mathematics 1',
     'IAL Pure Mathematics 2',
     'IGCSE Mathematics (Core)',
@@ -130,8 +134,8 @@ export default function AdmissionPage({ onNavigate }: AdmissionPageProps) {
   return (
     <div className="min-h-screen bg-white pt-32 pb-24">
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
-        <div className="text-center mb-16 opacity-0 animate-fade-in-up">
-          <h1 className="text-5xl md:text-6xl font-serif font-bold text-gray-900 mb-6">
+        <div className="text-center mb-16">
+          <h1 className="text-5xl md:text-6xl font-serif font-bold text-gray-900 mb-6 animate-fade-in">
             Apply for Admission
           </h1>
           <div className="w-20 h-1 bg-primary-700 mx-auto mb-6"></div>
@@ -141,7 +145,7 @@ export default function AdmissionPage({ onNavigate }: AdmissionPageProps) {
           </p>
         </div>
 
-        <section className="mb-20 opacity-0 animate-fade-in-up animate-delay-100">
+        <section className="mb-20">
           <div className="text-center mb-12">
             <h2 className="text-3xl font-serif font-bold text-gray-900 mb-4">
               Admission Process
@@ -153,8 +157,8 @@ export default function AdmissionPage({ onNavigate }: AdmissionPageProps) {
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-16">
             {steps.map((step, index) => (
-              <div key={index} className="text-center group opacity-0 animate-fade-in-up" style={{ animationDelay: `${200 + index * 100}ms` }}>
-                <div className="w-16 h-16 bg-primary-700 text-white rounded-full flex items-center justify-center mx-auto mb-4 text-2xl font-bold group-hover:scale-110 transition-all duration-300">
+              <div key={index} className="text-center group">
+                <div className="w-16 h-16 bg-primary-700 text-white rounded-full flex items-center justify-center mx-auto mb-4 text-2xl font-bold group-hover:scale-110 transition-transform">
                   {step.number}
                 </div>
                 <h3 className="text-xl font-semibold text-gray-900 mb-2">{step.title}</h3>
@@ -164,7 +168,7 @@ export default function AdmissionPage({ onNavigate }: AdmissionPageProps) {
           </div>
         </section>
 
-        <div className="max-w-3xl mx-auto opacity-0 animate-scale-in" style={{ animationDelay: '400ms' }}>
+        <div className="max-w-3xl mx-auto">
           <div className="bg-white border border-gray-200 rounded-3xl p-8 md:p-12 shadow-lg">
             <h2 className="text-3xl font-serif font-bold text-gray-900 mb-8">
               Application Form
@@ -219,7 +223,7 @@ export default function AdmissionPage({ onNavigate }: AdmissionPageProps) {
                     onChange={handleChange}
                     required
                     className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-all outline-none"
-                    placeholder="Phone number"
+                    placeholder="+81 XX-XXXX-XXXX"
                   />
                 </div>
               </div>
@@ -311,7 +315,7 @@ export default function AdmissionPage({ onNavigate }: AdmissionPageProps) {
             </form>
           </div>
 
-          <div className="mt-12 bg-gradient-to-br from-gray-50 to-primary-50/30 rounded-3xl p-8 text-center opacity-0 animate-fade-in-up" style={{ animationDelay: '600ms' }}>
+          <div className="mt-12 bg-gradient-to-br from-gray-50 to-primary-50/30 rounded-3xl p-8 text-center">
             <h3 className="text-2xl font-serif font-bold text-gray-900 mb-4">
               Have Questions?
             </h3>
