@@ -1,6 +1,5 @@
 import { useState } from 'react';
 import { CheckCircle, Send } from 'lucide-react';
-import { supabase } from '../supabaseClient'; // adjust path if needed
 
 interface AdmissionPageProps {
   onNavigate: (page: string) => void;
@@ -23,24 +22,7 @@ export default function AdmissionPage({ onNavigate }: AdmissionPageProps) {
     e.preventDefault();
     setIsSubmitting(true);
 
-    const { error } = await supabase.from('admissions').insert([
-      {
-        full_name: formData.fullName,
-        email: formData.email,
-        phone: formData.phone,
-        course: formData.course,
-        start_date: formData.startDate,
-        notes: formData.notes,
-        agree_to_terms: formData.agreeToTerms,
-      },
-    ]);
-
-    if (error) {
-      alert('Submission failed. Please try again.');
-      console.error(error);
-      setIsSubmitting(false);
-      return;
-    }
+    await new Promise((resolve) => setTimeout(resolve, 1500));
 
     setIsSubmitted(true);
     setIsSubmitting(false);
@@ -58,12 +40,8 @@ export default function AdmissionPage({ onNavigate }: AdmissionPageProps) {
   };
 
   const courses = [
-    'Foundations of Algebra & Arithmetic (Beginner)',
-    'Geometry & Visual Reasoning (Beginner)',
-    'Algebraic Techniques & Functions (Intermediate)',
-    'Trigonometry & Introductory Calculus (Intermediate)',
-    'Calculus & Mathematical Modeling (Advanced)',
-    'Abstract Reasoning & Complex Numbers (Advanced)',
+    'CLA1 – Calculus & Linear Algebra 1',
+    'CLA2 – Advanced Calculus & Linear Algebra',
     'IAL Pure Mathematics 1',
     'IAL Pure Mathematics 2',
     'IGCSE Mathematics (Core)',
@@ -152,8 +130,8 @@ export default function AdmissionPage({ onNavigate }: AdmissionPageProps) {
   return (
     <div className="min-h-screen bg-white pt-32 pb-24">
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
-        <div className="text-center mb-16">
-          <h1 className="text-5xl md:text-6xl font-serif font-bold text-gray-900 mb-6 animate-fade-in">
+        <div className="text-center mb-16 opacity-0 animate-fade-in-up">
+          <h1 className="text-5xl md:text-6xl font-serif font-bold text-gray-900 mb-6">
             Apply for Admission
           </h1>
           <div className="w-20 h-1 bg-primary-700 mx-auto mb-6"></div>
@@ -163,7 +141,7 @@ export default function AdmissionPage({ onNavigate }: AdmissionPageProps) {
           </p>
         </div>
 
-        <section className="mb-20">
+        <section className="mb-20 opacity-0 animate-fade-in-up animate-delay-100">
           <div className="text-center mb-12">
             <h2 className="text-3xl font-serif font-bold text-gray-900 mb-4">
               Admission Process
@@ -175,8 +153,8 @@ export default function AdmissionPage({ onNavigate }: AdmissionPageProps) {
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-16">
             {steps.map((step, index) => (
-              <div key={index} className="text-center group">
-                <div className="w-16 h-16 bg-primary-700 text-white rounded-full flex items-center justify-center mx-auto mb-4 text-2xl font-bold group-hover:scale-110 transition-transform">
+              <div key={index} className="text-center group opacity-0 animate-fade-in-up" style={{ animationDelay: `${200 + index * 100}ms` }}>
+                <div className="w-16 h-16 bg-primary-700 text-white rounded-full flex items-center justify-center mx-auto mb-4 text-2xl font-bold group-hover:scale-110 transition-all duration-300">
                   {step.number}
                 </div>
                 <h3 className="text-xl font-semibold text-gray-900 mb-2">{step.title}</h3>
@@ -186,18 +164,154 @@ export default function AdmissionPage({ onNavigate }: AdmissionPageProps) {
           </div>
         </section>
 
-        <div className="max-w-3xl mx-auto">
+        <div className="max-w-3xl mx-auto opacity-0 animate-scale-in" style={{ animationDelay: '400ms' }}>
           <div className="bg-white border border-gray-200 rounded-3xl p-8 md:p-12 shadow-lg">
             <h2 className="text-3xl font-serif font-bold text-gray-900 mb-8">
               Application Form
             </h2>
 
             <form onSubmit={handleSubmit} className="space-y-6">
-              {/* Paste the full form JSX here — Full Name, Email, Phone, Course, Start Date, Notes, Terms, Submit Button */}
+              <div>
+                <label
+                  htmlFor="fullName"
+                  className="block text-sm font-medium text-gray-900 mb-2"
+                >
+                  Full Name <span className="text-red-500">*</span>
+                </label>
+                <input
+                  type="text"
+                  id="fullName"
+                  name="fullName"
+                  value={formData.fullName}
+                  onChange={handleChange}
+                  required
+                  className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-all outline-none"
+                  placeholder="Your full name"
+                />
+              </div>
+
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div>
+                  <label htmlFor="email" className="block text-sm font-medium text-gray-900 mb-2">
+                    Email Address <span className="text-red-500">*</span>
+                  </label>
+                  <input
+                    type="email"
+                    id="email"
+                    name="email"
+                    value={formData.email}
+                    onChange={handleChange}
+                    required
+                    className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-all outline-none"
+                    placeholder="your.email@example.com"
+                  />
+                </div>
+
+                <div>
+                  <label htmlFor="phone" className="block text-sm font-medium text-gray-900 mb-2">
+                    Phone Number <span className="text-red-500">*</span>
+                  </label>
+                  <input
+                    type="tel"
+                    id="phone"
+                    name="phone"
+                    value={formData.phone}
+                    onChange={handleChange}
+                    required
+                    className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-all outline-none"
+                    placeholder="Phone number"
+                  />
+                </div>
+              </div>
+
+              <div>
+                <label htmlFor="course" className="block text-sm font-medium text-gray-900 mb-2">
+                  Course Interested In <span className="text-red-500">*</span>
+                </label>
+                <select
+                  id="course"
+                  name="course"
+                  value={formData.course}
+                  onChange={handleChange}
+                  required
+                  className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-all outline-none"
+                >
+                  <option value="">Select a course</option>
+                  {courses.map((course, index) => (
+                    <option key={index} value={course}>
+                      {course}
+                    </option>
+                  ))}
+                </select>
+              </div>
+
+              <div>
+                <label
+                  htmlFor="startDate"
+                  className="block text-sm font-medium text-gray-900 mb-2"
+                >
+                  Preferred Start Date <span className="text-red-500">*</span>
+                </label>
+                <input
+                  type="date"
+                  id="startDate"
+                  name="startDate"
+                  value={formData.startDate}
+                  onChange={handleChange}
+                  required
+                  className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-all outline-none"
+                />
+              </div>
+
+              <div>
+                <label htmlFor="notes" className="block text-sm font-medium text-gray-900 mb-2">
+                  Additional Notes
+                </label>
+                <textarea
+                  id="notes"
+                  name="notes"
+                  value={formData.notes}
+                  onChange={handleChange}
+                  rows={5}
+                  className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-all outline-none resize-none"
+                  placeholder="Tell us about your mathematical background, goals, or any questions you have..."
+                />
+              </div>
+
+              <div className="flex items-start">
+                <input
+                  type="checkbox"
+                  id="agreeToTerms"
+                  name="agreeToTerms"
+                  checked={formData.agreeToTerms}
+                  onChange={handleChange}
+                  required
+                  className="mt-1 w-5 h-5 text-primary-700 border-gray-300 rounded focus:ring-2 focus:ring-primary-500"
+                />
+                <label htmlFor="agreeToTerms" className="ml-3 text-sm text-gray-700">
+                  I agree to the terms and conditions and consent to being contacted regarding my
+                  application. <span className="text-red-500">*</span>
+                </label>
+              </div>
+
+              <button
+                type="submit"
+                disabled={isSubmitting}
+                className="w-full py-4 bg-primary-700 text-white font-semibold rounded-full hover:bg-primary-800 transition-all duration-300 hover:scale-105 shadow-lg hover:shadow-xl flex items-center justify-center space-x-2 disabled:opacity-50 disabled:cursor-not-allowed"
+              >
+                {isSubmitting ? (
+                  <span>Submitting Application...</span>
+                ) : (
+                  <>
+                    <span>Submit Application</span>
+                    <Send size={20} />
+                  </>
+                )}
+              </button>
             </form>
           </div>
 
-          <div className="mt-12 bg-gradient-to-br from-gray-50 to-primary-50/30 rounded-3xl p-8 text-center">
+          <div className="mt-12 bg-gradient-to-br from-gray-50 to-primary-50/30 rounded-3xl p-8 text-center opacity-0 animate-fade-in-up" style={{ animationDelay: '600ms' }}>
             <h3 className="text-2xl font-serif font-bold text-gray-900 mb-4">
               Have Questions?
             </h3>
