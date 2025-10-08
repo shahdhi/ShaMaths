@@ -1,10 +1,36 @@
 import { Award, BookOpen, Target, Heart } from 'lucide-react';
+import { useEffect, useRef, useState } from 'react';
 
 interface AboutPageProps {
   onNavigate: (page: string) => void;
 }
 
 export default function AboutPage({ onNavigate }: AboutPageProps) {
+  const [isVisible, setIsVisible] = useState({ story: false, philosophy: false, values: false });
+  const storyRef = useRef<HTMLDivElement>(null);
+  const philosophyRef = useRef<HTMLDivElement>(null);
+  const valuesRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            const id = entry.target.id;
+            setIsVisible(prev => ({ ...prev, [id]: true }));
+          }
+        });
+      },
+      { threshold: 0.1 }
+    );
+
+    if (storyRef.current) observer.observe(storyRef.current);
+    if (philosophyRef.current) observer.observe(philosophyRef.current);
+    if (valuesRef.current) observer.observe(valuesRef.current);
+
+    return () => observer.disconnect();
+  }, []);
+
   const values = [
     {
       icon: Target,
@@ -35,8 +61,8 @@ export default function AboutPage({ onNavigate }: AboutPageProps) {
   return (
     <div className="min-h-screen bg-white pt-32 pb-24">
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
-        <div className="text-center mb-16">
-          <h1 className="text-5xl md:text-6xl font-serif font-bold text-gray-900 mb-6 animate-fade-in">
+        <div className="text-center mb-16 opacity-0 animate-fade-in-up">
+          <h1 className="text-5xl md:text-6xl font-serif font-bold text-gray-900 mb-6">
             About Sha Maths
           </h1>
           <div className="w-20 h-1 bg-primary-700 mx-auto mb-6"></div>
@@ -45,22 +71,14 @@ export default function AboutPage({ onNavigate }: AboutPageProps) {
           </p>
         </div>
 
-        <section className="mb-20">
-          <div className="max-w-7xl mx-auto mb-16">
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-              <div>
-                <img
-                  src="https://d3f1iyfxxz8i1e.cloudfront.net/courses/course_image/e9c7bd7bb8cf.jpg"
-                  alt="Mathematics education"
-                  className="rounded-3xl shadow-2xl w-full h-[500px] object-cover"
-                />
-              </div>
-              <div className="bg-gradient-to-br from-gray-50 to-primary-50/30 rounded-3xl p-12">
-                <h2 className="text-3xl font-serif font-bold text-gray-900 mb-6">Our Story</h2>
+        <section id="story" ref={storyRef} className="mb-20">
+          <div className="max-w-4xl mx-auto">
+            <div className={`bg-gradient-to-br from-gray-50 to-primary-50/30 rounded-3xl p-12 mb-12 transition-all duration-1000 ${isVisible.story ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
+              <h2 className="text-3xl font-serif font-bold text-gray-900 mb-6">Our Story</h2>
               <div className="space-y-6 text-lg text-gray-700 leading-relaxed">
                 <p>
                   Sha Maths was founded on a simple yet powerful belief: mathematics should be
-                  accessible, engaging, and transformative. Based in Japan, we offer fully
+                  accessible, engaging, and transformative. We offer fully
                   English instruction for students seeking excellence in mathematics education,
                   from IGCSE through university level.
                 </p>
@@ -78,11 +96,8 @@ export default function AboutPage({ onNavigate }: AboutPageProps) {
                 </p>
               </div>
             </div>
-            </div>
-          </div>
 
-          <div className="max-w-4xl mx-auto">
-            <div className="bg-white border border-gray-200 rounded-3xl p-12">
+            <div id="philosophy" ref={philosophyRef} className={`bg-white border border-gray-200 rounded-3xl p-12 transition-all duration-1000 delay-200 ${isVisible.story ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
               <h2 className="text-3xl font-serif font-bold text-gray-900 mb-6">
                 Teaching Philosophy
               </h2>
@@ -92,14 +107,14 @@ export default function AboutPage({ onNavigate }: AboutPageProps) {
                   computational ability. Our approach emphasizes:
                 </p>
                 <ul className="space-y-4 ml-6">
-                  <li className="flex items-start">
+                  <li className="flex items-start transition-all duration-300 hover:translate-x-1">
                     <span className="text-primary-700 mr-3 text-2xl font-bold">•</span>
                     <span>
                       <strong className="text-gray-900">Conceptual Clarity:</strong> We ensure
-                      students understand the 'why\' behind every concept, not just the 'how'.
+                      students understand the 'why' behind every concept, not just the 'how'.
                     </span>
                   </li>
-                  <li className="flex items-start">
+                  <li className="flex items-start transition-all duration-300 hover:translate-x-1">
                     <span className="text-primary-700 mr-3 text-2xl font-bold">•</span>
                     <span>
                       <strong className="text-gray-900">Problem-Solving Skills:</strong>{' '}
@@ -107,7 +122,7 @@ export default function AboutPage({ onNavigate }: AboutPageProps) {
                       carefully selected problems.
                     </span>
                   </li>
-                  <li className="flex items-start">
+                  <li className="flex items-start transition-all duration-300 hover:translate-x-1">
                     <span className="text-primary-700 mr-3 text-2xl font-bold">•</span>
                     <span>
                       <strong className="text-gray-900">Individual Attention:</strong> Small
@@ -115,7 +130,7 @@ export default function AboutPage({ onNavigate }: AboutPageProps) {
                       support.
                     </span>
                   </li>
-                  <li className="flex items-start">
+                  <li className="flex items-start transition-all duration-300 hover:translate-x-1">
                     <span className="text-primary-700 mr-3 text-2xl font-bold">•</span>
                     <span>
                       <strong className="text-gray-900">Confidence Building:</strong> We help
@@ -129,8 +144,8 @@ export default function AboutPage({ onNavigate }: AboutPageProps) {
           </div>
         </section>
 
-        <section className="mb-20">
-          <div className="text-center mb-12">
+        <section id="values" ref={valuesRef} className="mb-20">
+          <div className={`text-center mb-12 transition-all duration-1000 ${isVisible.values ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
             <h2 className="text-4xl font-serif font-bold text-gray-900 mb-4">Our Values</h2>
             <div className="w-20 h-1 bg-primary-700 mx-auto"></div>
           </div>
@@ -139,10 +154,11 @@ export default function AboutPage({ onNavigate }: AboutPageProps) {
             {values.map((value, index) => (
               <div
                 key={index}
-                className="bg-white border border-gray-200 rounded-2xl p-8 text-center hover:shadow-xl transition-all duration-300 hover:-translate-y-2"
+                className={`bg-white border border-gray-200 rounded-2xl p-8 text-center hover-lift transition-all duration-1000 ${isVisible.values ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}
+                style={{ transitionDelay: `${100 + index * 100}ms` }}
               >
-                <div className="w-16 h-16 bg-primary-50 rounded-full flex items-center justify-center mx-auto mb-6">
-                  <value.icon size={32} className="text-primary-700" />
+                <div className="w-16 h-16 bg-primary-50 rounded-full flex items-center justify-center mx-auto mb-6 transition-all duration-300 group-hover:bg-primary-700">
+                  <value.icon size={32} className="text-primary-700 group-hover:text-white transition-colors" />
                 </div>
                 <h3 className="text-xl font-semibold text-gray-900 mb-3">{value.title}</h3>
                 <p className="text-gray-600 leading-relaxed">{value.description}</p>
@@ -151,32 +167,31 @@ export default function AboutPage({ onNavigate }: AboutPageProps) {
           </div>
         </section>
 
-        <section className="mb-20">
-          <div className="max-w-7xl mx-auto">
-            <h2 className="text-3xl font-serif font-bold text-gray-900 mb-12 text-center">
+        <section className="mb-20 opacity-0 animate-fade-in-up" style={{ animationDelay: '400ms' }}>
+          <div className="max-w-4xl mx-auto">
+            <h2 className="text-3xl font-serif font-bold text-gray-900 mb-8 text-center">
               Credentials & Experience
             </h2>
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-              <div className="bg-white border border-gray-200 rounded-3xl p-12">
+            <div className="bg-white border border-gray-200 rounded-3xl p-12">
               <div className="space-y-6 text-lg text-gray-700 leading-relaxed">
                 <p>
                   Our instruction is backed by extensive teaching experience across multiple
                   educational systems and levels. We have successfully prepared students for:
                 </p>
                 <ul className="space-y-3 ml-6">
-                  <li className="flex items-start">
+                  <li className="flex items-start transition-all duration-300 hover:translate-x-1">
                     <span className="text-primary-700 mr-3">✓</span>
                     <span>IGCSE Mathematics examinations (Core and Extended)</span>
                   </li>
-                  <li className="flex items-start">
+                  <li className="flex items-start transition-all duration-300 hover:translate-x-1">
                     <span className="text-primary-700 mr-3">✓</span>
                     <span>International A-Level (IAL) Pure Mathematics</span>
                   </li>
-                  <li className="flex items-start">
+                  <li className="flex items-start transition-all duration-300 hover:translate-x-1">
                     <span className="text-primary-700 mr-3">✓</span>
                     <span>University-level calculus and linear algebra courses</span>
                   </li>
-                  <li className="flex items-start">
+                  <li className="flex items-start transition-all duration-300 hover:translate-x-1">
                     <span className="text-primary-700 mr-3">✓</span>
                     <span>Academic advancement and university preparation</span>
                   </li>
@@ -189,18 +204,10 @@ export default function AboutPage({ onNavigate }: AboutPageProps) {
                 </p>
               </div>
             </div>
-            <div>
-              <img
-                src="https://teaching.blog.gov.uk/wp-content/uploads/sites/170/2019/09/266-Secondary-Teachers_maths-mastery.jpg"
-                alt="Mathematical achievement"
-                className="rounded-3xl shadow-2xl w-full h-[500px] object-cover"
-              />
-            </div>
-            </div>
           </div>
         </section>
 
-        <div className="bg-gradient-to-br from-primary-700 to-primary-900 rounded-3xl p-12 text-white text-center">
+        <div className="bg-gradient-to-br from-primary-700 to-primary-900 rounded-3xl p-12 text-white text-center opacity-0 animate-scale-in" style={{ animationDelay: '600ms' }}>
           <h2 className="text-3xl md:text-4xl font-serif font-bold mb-6">
             Join the Sha Maths Community
           </h2>
