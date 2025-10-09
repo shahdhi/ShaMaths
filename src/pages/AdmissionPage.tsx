@@ -1,6 +1,10 @@
 import { useState } from 'react';
 import { CheckCircle, Send } from 'lucide-react';
 
+// Supabase Configuration
+const SUPABASE_URL = 'https://arlqwkkmjpvzchwksvyq.supabase.co';
+const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImFybHF3a2ttanB2emNod2tzdnlxIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTk4MjkwMTQsImV4cCI6MjA3NTQwNTAxNH0.1k4tc-I9rqkG7aCS5VijyJ_JAUDs48LvdR_mffsrmlo';
+
 interface AdmissionPageProps {
   onNavigate: (page: string) => void;
 }
@@ -17,15 +21,47 @@ export default function AdmissionPage({ onNavigate }: AdmissionPageProps) {
   });
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [error, setError] = useState('');
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
+    setError('');
 
-    await new Promise((resolve) => setTimeout(resolve, 1500));
+    try {
+      const response = await fetch(`${SUPABASE_URL}/rest/v1/admissions`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'apikey': SUPABASE_ANON_KEY,
+          'Authorization': `Bearer ${SUPABASE_ANON_KEY}`,
+          'Prefer': 'return=representation'
+        },
+        body: JSON.stringify({
+          full_name: formData.fullName,
+          email: formData.email,
+          phone: formData.phone,
+          course: formData.course,
+          start_date: formData.startDate,
+          notes: formData.notes || null,
+          agree_to_terms: formData.agreeToTerms,
+        }),
+      });
 
-    setIsSubmitted(true);
-    setIsSubmitting(false);
+      if (!response.ok) {
+        const errorData = await response.json();
+        throw new Error(errorData.message || 'Failed to submit application');
+      }
+
+      const data = await response.json();
+      console.log('Submission successful:', data);
+      setIsSubmitted(true);
+    } catch (err: any) {
+      console.error('Error submitting form:', err);
+      setError(err.message || 'Failed to submit application. Please try again.');
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const handleChange = (
@@ -169,6 +205,12 @@ export default function AdmissionPage({ onNavigate }: AdmissionPageProps) {
             <h2 className="text-3xl font-serif font-bold text-gray-900 mb-8">
               Application Form
             </h2>
+
+            {error && (
+              <div className="mb-6 p-4 bg-red-50 border border-red-200 rounded-xl text-red-700">
+                {error}
+              </div>
+            )}
 
             <form onSubmit={handleSubmit} className="space-y-6">
               <div>
