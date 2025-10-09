@@ -59,8 +59,9 @@ export default function AboutPage({ onNavigate }: AboutPageProps) {
   ];
 
   return (
-    <div className="min-h-screen bg-white pt-32 pb-24">
-      <div className="max-w-7xl mx-auto px-6 lg:px-8">
+    <div className="min-h-screen bg-white pt-32 pb-24 relative overflow-hidden">
+      <div className="absolute top-0 right-0 w-96 h-96 bg-primary-100 rounded-full blur-3xl opacity-20"></div>
+      <div className="max-w-7xl mx-auto px-6 lg:px-8 relative">
         <div className="text-center mb-16 opacity-0 animate-fade-in-up">
           <h1 className="text-5xl md:text-6xl font-serif font-bold text-gray-900 mb-6">
             About Sha Maths
@@ -73,6 +74,16 @@ export default function AboutPage({ onNavigate }: AboutPageProps) {
 
         <section id="story" ref={storyRef} className="mb-20">
           <div className="max-w-4xl mx-auto">
+            <div className="mb-12 opacity-0 animate-fade-in-up">
+              <div className="relative rounded-3xl overflow-hidden shadow-2xl mb-12">
+                <img
+                  src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=1400&q=80"
+                  alt="Students collaborating on mathematics"
+                  className="w-full h-80 object-cover"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-gray-900/60 to-transparent"></div>
+              </div>
+            </div>
             <div className={`bg-gradient-to-br from-gray-50 to-primary-50/30 rounded-3xl p-12 mb-12 transition-all duration-1000 ${isVisible.story ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
               <h2 className="text-3xl font-serif font-bold text-gray-900 mb-6">Our Story</h2>
               <div className="space-y-6 text-lg text-gray-700 leading-relaxed">
@@ -144,7 +155,11 @@ export default function AboutPage({ onNavigate }: AboutPageProps) {
           </div>
         </section>
 
-        <section id="values" ref={valuesRef} className="mb-20">
+        <section id="values" ref={valuesRef} className="mb-20 relative">
+          <div className="absolute inset-0 opacity-5">
+            <div className="absolute top-0 left-1/4 w-48 h-48 bg-primary-700 rounded-full blur-3xl"></div>
+            <div className="absolute bottom-0 right-1/4 w-48 h-48 bg-accent-600 rounded-full blur-3xl"></div>
+          </div>
           <div className={`text-center mb-12 transition-all duration-1000 ${isVisible.values ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
             <h2 className="text-4xl font-serif font-bold text-gray-900 mb-4">Our Values</h2>
             <div className="w-20 h-1 bg-primary-700 mx-auto"></div>
@@ -154,10 +169,10 @@ export default function AboutPage({ onNavigate }: AboutPageProps) {
             {values.map((value, index) => (
               <div
                 key={index}
-                className={`bg-white border border-gray-200 rounded-2xl p-8 text-center hover-lift transition-all duration-1000 ${isVisible.values ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}
+                className={`bg-white border border-gray-200 rounded-2xl p-8 text-center hover-lift transition-all duration-1000 group relative z-10 ${isVisible.values ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}
                 style={{ transitionDelay: `${100 + index * 100}ms` }}
               >
-                <div className="w-16 h-16 bg-primary-50 rounded-full flex items-center justify-center mx-auto mb-6 transition-all duration-300 group-hover:bg-primary-700">
+                <div className="w-16 h-16 bg-gradient-to-br from-primary-50 to-primary-100 rounded-2xl flex items-center justify-center mx-auto mb-6 transition-all duration-300 group-hover:from-primary-700 group-hover:to-primary-800 shadow-sm">
                   <value.icon size={32} className="text-primary-700 group-hover:text-white transition-colors" />
                 </div>
                 <h3 className="text-xl font-semibold text-gray-900 mb-3">{value.title}</h3>
