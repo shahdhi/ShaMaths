@@ -77,7 +77,7 @@ export default function AboutPage({ onNavigate }: AboutPageProps) {
             <div className="mb-12 opacity-0 animate-fade-in-up">
               <div className="relative rounded-3xl overflow-hidden shadow-2xl mb-12">
                 <img
-                  src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=1400&q=80"
+                  src="https://www.gradschoolcenter.com/wp-content/uploads/2023/08/shutterstock_2157675065.jpg"
                   alt="Students collaborating on mathematics"
                   className="w-full h-80 object-cover"
                 />
