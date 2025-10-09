@@ -9,7 +9,7 @@ export default function CoursesPage({ onNavigate }: CoursesPageProps) {
   const [selectedLevel, setSelectedLevel] = useState<string>('all');
 
   const courseImages = {
-    'Beginner': 'https://quizizz.com/media/resource/gs/quizizz-media/quizzes/1beeeb24-f88f-4684-a51b-dcd6d88526bd',
+    'Beginner': 'https://tse2.mm.bing.net/th/id/OIP.bV6woY3kMkWby_uVZhyYdAHaFj?cb=12&rs=1&pid=ImgDetMain&o=7&rm=3',
     'Intermediate': 'https://warreninstitute.org/wp-content/uploads/trigonometry.jpg',
     'Advanced': 'https://thumbs.dreamstime.com/b/solve-some-complicated-mathematics-question-14942254.jpg',
     'A-Level': 'https://d3f1iyfxxz8i1e.cloudfront.net/courses/course_image/07dee2566344.jpg',
