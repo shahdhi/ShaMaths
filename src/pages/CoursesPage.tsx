@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { BookOpen, Clock, Users, Calendar } from 'lucide-react';
+import { BookOpen, Clock, Users, Calendar, Calculator, TrendingUp, Award, Target } from 'lucide-react';
 
 interface CoursesPageProps {
   onNavigate: (page: string, courseId?: string) => void;
@@ -7,6 +7,22 @@ interface CoursesPageProps {
 
 export default function CoursesPage({ onNavigate }: CoursesPageProps) {
   const [selectedLevel, setSelectedLevel] = useState<string>('all');
+
+  const courseImages = {
+    'Beginner': 'https://images.unsplash.com/photo-1596495578065-6e0763fa1178?auto=format&fit=crop&w=800&q=80',
+    'Intermediate': 'https://images.unsplash.com/photo-1635070041078-e363dbe005cb?auto=format&fit=crop&w=800&q=80',
+    'Advanced': 'https://images.unsplash.com/photo-1509228468518-180dd4864904?auto=format&fit=crop&w=800&q=80',
+    'A-Level': 'https://images.unsplash.com/photo-1434030216411-0b793f4b4173?auto=format&fit=crop&w=800&q=80',
+    'IGCSE': 'https://images.unsplash.com/photo-1588072432836-e10032774350?auto=format&fit=crop&w=800&q=80',
+  };
+
+  const levelIcons = {
+    'Beginner': Calculator,
+    'Intermediate': TrendingUp,
+    'Advanced': Target,
+    'A-Level': Award,
+    'IGCSE': BookOpen,
+  };
 
   const courses = [
     {
@@ -199,8 +215,10 @@ export default function CoursesPage({ onNavigate }: CoursesPageProps) {
       : courses.filter((course) => course.level === selectedLevel);
 
   return (
-    <div className="min-h-screen bg-white pt-32 pb-24">
-      <div className="max-w-7xl mx-auto px-6 lg:px-8">
+    <div className="min-h-screen bg-white pt-32 pb-24 relative overflow-hidden">
+      <div className="absolute top-0 right-0 w-96 h-96 bg-primary-100 rounded-full blur-3xl opacity-20"></div>
+      <div className="absolute bottom-0 left-0 w-96 h-96 bg-accent-100 rounded-full blur-3xl opacity-20"></div>
+      <div className="max-w-7xl mx-auto px-6 lg:px-8 relative">
         <div className="text-center mb-16">
           <h1 className="text-5xl md:text-6xl font-serif font-bold text-gray-900 mb-6 animate-fade-in">
             Our Courses
@@ -229,21 +247,35 @@ export default function CoursesPage({ onNavigate }: CoursesPageProps) {
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-          {filteredCourses.map((course, index) => (
+          {filteredCourses.map((course, index) => {
+            const LevelIcon = levelIcons[course.level as keyof typeof levelIcons];
+            return (
             <div
               key={course.id}
               className="bg-white border border-gray-200 rounded-2xl overflow-hidden hover:shadow-2xl transition-all duration-500 group hover:-translate-y-1 animate-scale-in"
               style={{ animationDelay: `${index * 100}ms` }}
             >
-              <div className="bg-gradient-to-br from-primary-700 to-primary-900 p-8 text-white">
-                <div className="inline-block px-4 py-1 bg-white/20 rounded-full text-sm font-medium mb-4">
-                  {course.level}
+              <div className="relative h-48 overflow-hidden">
+                <img
+                  src={courseImages[course.level as keyof typeof courseImages]}
+                  alt={course.level}
+                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-gray-900/80 via-gray-900/50 to-transparent"></div>
+                <div className="absolute bottom-4 left-6 right-6">
+                  <div className="flex items-center space-x-3 mb-2">
+                    <div className="w-10 h-10 bg-white/20 backdrop-blur-sm rounded-xl flex items-center justify-center">
+                      {LevelIcon && <LevelIcon size={20} className="text-white" />}
+                    </div>
+                    <span className="px-3 py-1 bg-white/20 backdrop-blur-sm rounded-full text-sm font-medium text-white">
+                      {course.level}
+                    </span>
+                  </div>
+                  <h3 className="text-xl font-serif font-bold text-white">{course.title}</h3>
                 </div>
-                <h3 className="text-2xl font-serif font-bold mb-3">{course.title}</h3>
-                <p className="text-primary-100 leading-relaxed">{course.description}</p>
               </div>
-
               <div className="p-8">
+                <p className="text-gray-600 mb-6 leading-relaxed">{course.description}</p>
                 <div className="mb-6">
                   <h4 className="text-lg font-semibold text-gray-900 mb-4 flex items-center">
                     <BookOpen size={20} className="mr-2 text-primary-700" />
@@ -282,10 +314,18 @@ export default function CoursesPage({ onNavigate }: CoursesPageProps) {
                 </button>
               </div>
             </div>
-          ))}
+          );})}
         </div>
 
-        <div className="mt-20 bg-gradient-to-br from-gray-50 to-primary-50/30 rounded-3xl p-12 text-center">
+        <div className="mt-20 bg-gradient-to-br from-gray-50 to-primary-50/30 rounded-3xl p-12 text-center relative overflow-hidden">
+          <div className="absolute inset-0 opacity-5">
+            <img
+              src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=1400&q=80"
+              alt="Students learning together"
+              className="w-full h-full object-cover"
+            />
+          </div>
+          <div className="relative">
           <h2 className="text-3xl font-serif font-bold text-gray-900 mb-4">
             Not Sure Which Course Is Right?
           </h2>
@@ -306,6 +346,7 @@ export default function CoursesPage({ onNavigate }: CoursesPageProps) {
             >
               Apply Now
             </button>
+          </div>
           </div>
         </div>
       </div>
