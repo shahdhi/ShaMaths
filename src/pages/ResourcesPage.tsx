@@ -129,8 +129,10 @@ export default function ResourcesPage({ onNavigate }: ResourcesPageProps) {
   ];
 
   return (
-    <div className="min-h-screen bg-white pt-32 pb-24">
-      <div className="max-w-7xl mx-auto px-6 lg:px-8">
+    <div className="min-h-screen bg-white pt-32 pb-24 relative overflow-hidden">
+      <div className="absolute top-0 right-0 w-96 h-96 bg-primary-100 rounded-full blur-3xl opacity-20"></div>
+      <div className="absolute bottom-0 left-0 w-96 h-96 bg-accent-100 rounded-full blur-3xl opacity-20"></div>
+      <div className="max-w-7xl mx-auto px-6 lg:px-8 relative">
         <div className="text-center mb-16 opacity-0 animate-fade-in-up">
           <h1 className="text-5xl md:text-6xl font-serif font-bold text-gray-900 mb-6">
             Learning Resources
@@ -141,8 +143,15 @@ export default function ResourcesPage({ onNavigate }: ResourcesPageProps) {
           </p>
         </div>
 
-        <div className="bg-gradient-to-br from-primary-50 to-accent-50 rounded-3xl p-8 md:p-12 mb-16 opacity-0 animate-scale-in animate-delay-100">
-          <div className="flex flex-col md:flex-row items-center justify-between">
+        <div className="bg-gradient-to-br from-primary-50 to-accent-50 rounded-3xl p-8 md:p-12 mb-16 opacity-0 animate-scale-in animate-delay-100 relative overflow-hidden">
+          <div className="absolute inset-0 opacity-10">
+            <img
+              src="https://images.unsplash.com/photo-1456513080510-7bf3a84b82f8?auto=format&fit=crop&w=1400&q=80"
+              alt="Study materials"
+              className="w-full h-full object-cover"
+            />
+          </div>
+          <div className="relative flex flex-col md:flex-row items-center justify-between">
             <div className="mb-6 md:mb-0">
               <h2 className="text-2xl md:text-3xl font-serif font-bold text-gray-900 mb-3">
                 Access Premium Resources
@@ -177,26 +186,34 @@ export default function ResourcesPage({ onNavigate }: ResourcesPageProps) {
                 {category.items.map((item, itemIndex) => (
                   <div
                     key={itemIndex}
-                    className="bg-white border border-gray-200 rounded-2xl p-8 hover-lift opacity-0 animate-fade-in-up"
+                    className="bg-white border border-gray-200 rounded-2xl overflow-hidden hover-lift opacity-0 animate-fade-in-up group"
                     style={{ animationDelay: `${200 + categoryIndex * 100 + itemIndex * 50}ms` }}
                   >
-                    <div className="flex items-start justify-between mb-4">
-                      <div className="flex-1">
-                        <div className="inline-block px-3 py-1 bg-primary-100 text-primary-700 text-xs font-medium rounded-full mb-3">
+                    <div className="h-32 bg-gradient-to-br from-primary-600 to-primary-800 relative overflow-hidden">
+                      <div className="absolute inset-0 opacity-20">
+                        <div className="absolute top-4 right-4 w-24 h-24 bg-white rounded-full blur-2xl"></div>
+                      </div>
+                      <div className="absolute inset-0 flex items-center justify-center">
+                        <category.icon size={48} className="text-white opacity-30" />
+                      </div>
+                      <div className="absolute bottom-4 left-6">
+                        <div className="inline-block px-3 py-1 bg-white/20 backdrop-blur-sm text-white text-xs font-medium rounded-full">
                           {item.type}
                         </div>
-                        <h3 className="text-xl font-semibold text-gray-900 mb-2">
-                          {item.title}
-                        </h3>
                       </div>
                     </div>
-                    <p className="text-gray-600 mb-4 leading-relaxed">{item.description}</p>
-                    <div className="flex items-center justify-between pt-4 border-t border-gray-100">
-                      <span className="text-sm text-gray-500">{item.level}</span>
-                      <button className="flex items-center text-primary-700 font-medium hover:text-primary-800 transition-all duration-300 hover:translate-x-1">
-                        <Download size={18} className="mr-2" />
-                        Download
-                      </button>
+                    <div className="p-6">
+                      <h3 className="text-xl font-semibold text-gray-900 mb-2">
+                        {item.title}
+                      </h3>
+                      <p className="text-gray-600 mb-4 leading-relaxed">{item.description}</p>
+                      <div className="flex items-center justify-between pt-4 border-t border-gray-100">
+                        <span className="text-sm text-gray-500">{item.level}</span>
+                        <button className="flex items-center text-primary-700 font-medium hover:text-primary-800 transition-all duration-300 hover:translate-x-1">
+                          <Download size={18} className="mr-2" />
+                          Download
+                        </button>
+                      </div>
                     </div>
                   </div>
                 ))}
