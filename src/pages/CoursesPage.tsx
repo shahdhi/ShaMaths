@@ -9,11 +9,11 @@ export default function CoursesPage({ onNavigate }: CoursesPageProps) {
   const [selectedLevel, setSelectedLevel] = useState<string>('all');
 
   const courseImages = {
-    'Beginner': 'https://images.unsplash.com/photo-1596495578065-6e0763fa1178?auto=format&fit=crop&w=800&q=80',
-    'Intermediate': 'https://images.unsplash.com/photo-1635070041078-e363dbe005cb?auto=format&fit=crop&w=800&q=80',
-    'Advanced': 'https://images.unsplash.com/photo-1509228468518-180dd4864904?auto=format&fit=crop&w=800&q=80',
-    'A-Level': 'https://images.unsplash.com/photo-1434030216411-0b793f4b4173?auto=format&fit=crop&w=800&q=80',
-    'IGCSE': 'https://images.unsplash.com/photo-1588072432836-e10032774350?auto=format&fit=crop&w=800&q=80',
+    'Beginner': 'https://quizizz.com/media/resource/gs/quizizz-media/quizzes/1beeeb24-f88f-4684-a51b-dcd6d88526bd',
+    'Intermediate': 'https://warreninstitute.org/wp-content/uploads/trigonometry.jpg',
+    'Advanced': 'https://thumbs.dreamstime.com/b/solve-some-complicated-mathematics-question-14942254.jpg',
+    'A-Level': 'https://d3f1iyfxxz8i1e.cloudfront.net/courses/course_image/07dee2566344.jpg',
+    'IGCSE': 'https://media.istockphoto.com/id/1159805706/photo/solving-math-problem-on-paper.jpg?s=612x612&w=0&k=20&c=a0_2WlpvWYT6etQZX-_XPeuLn_HOFF6wfRmnAPwq620=',
   };
 
   const levelIcons = {
