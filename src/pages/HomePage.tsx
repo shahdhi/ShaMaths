@@ -86,6 +86,13 @@ export default function HomePage({ onNavigate }: HomePageProps) {
   return (
     <div className="bg-white">
       <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-gray-50 via-white to-primary-50/30">
+        <div className="absolute inset-0 overflow-hidden">
+          <img
+            src="https://images.unsplash.com/photo-1635070041078-e363dbe005cb?auto=format&fit=crop&w=2000&q=80"
+            alt="Mathematics and education"
+            className="w-full h-full object-cover opacity-10"
+          />
+        </div>
         <div className="absolute inset-0 overflow-hidden opacity-5">
           <div className="absolute top-20 left-10 text-9xl font-serif text-primary-900 animate-fade-in">∫</div>
           <div className="absolute top-40 right-20 text-8xl font-serif text-primary-900 animate-fade-in animate-delay-100">∑</div>
@@ -149,8 +156,12 @@ export default function HomePage({ onNavigate }: HomePageProps) {
         </div>
       </section>
 
-      <section id="features" ref={featuresRef} className="py-24 bg-gray-50">
-        <div className="max-w-7xl mx-auto px-6 lg:px-8">
+      <section id="features" ref={featuresRef} className="py-24 bg-gray-50 relative overflow-hidden">
+        <div className="absolute inset-0 opacity-5">
+          <div className="absolute top-10 right-10 w-64 h-64 bg-primary-700 rounded-full blur-3xl"></div>
+          <div className="absolute bottom-10 left-10 w-64 h-64 bg-accent-600 rounded-full blur-3xl"></div>
+        </div>
+        <div className="max-w-7xl mx-auto px-6 lg:px-8 relative">
           <div className={`text-center mb-16 transition-all duration-1000 ${isVisible.features ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
             <h2 className="text-4xl md:text-5xl font-serif font-bold text-gray-900 mb-4">
               Why Choose Sha Maths
@@ -162,10 +173,10 @@ export default function HomePage({ onNavigate }: HomePageProps) {
             {features.map((feature, index) => (
               <div
                 key={index}
-                className={`bg-white p-8 rounded-2xl shadow-sm hover-lift group transition-all duration-1000 ${isVisible.features ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}
+                className={`bg-white p-8 rounded-2xl shadow-sm hover-lift group transition-all duration-1000 border border-gray-100 ${isVisible.features ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}
                 style={{ transitionDelay: `${index * 100}ms` }}
               >
-                <div className="w-14 h-14 bg-primary-50 rounded-full flex items-center justify-center mb-6 group-hover:bg-primary-700 transition-colors duration-300">
+                <div className="w-16 h-16 bg-gradient-to-br from-primary-50 to-primary-100 rounded-2xl flex items-center justify-center mb-6 group-hover:from-primary-700 group-hover:to-primary-800 transition-all duration-300 shadow-sm">
                   <feature.icon size={28} className="text-primary-700 group-hover:text-white transition-colors duration-300" />
                 </div>
                 <h3 className="text-xl font-semibold text-gray-900 mb-3">
@@ -231,8 +242,15 @@ export default function HomePage({ onNavigate }: HomePageProps) {
         </div>
       </section>
 
-      <section className="py-24 bg-gradient-to-br from-primary-700 to-primary-900 text-white overflow-hidden">
-        <div className="max-w-4xl mx-auto px-6 lg:px-8 text-center opacity-0 animate-fade-in-up">
+      <section className="py-24 bg-gradient-to-br from-primary-700 to-primary-900 text-white overflow-hidden relative">
+        <div className="absolute inset-0 opacity-10">
+          <img
+            src="https://images.unsplash.com/photo-1509228468518-180dd4864904?auto=format&fit=crop&w=2000&q=80"
+            alt="Students learning"
+            className="w-full h-full object-cover"
+          />
+        </div>
+        <div className="max-w-4xl mx-auto px-6 lg:px-8 text-center opacity-0 animate-fade-in-up relative">
           <h2 className="text-4xl md:text-5xl font-serif font-bold mb-6">
             Ready to Begin Your Journey?
           </h2>
