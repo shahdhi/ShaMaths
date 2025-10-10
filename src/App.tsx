@@ -8,6 +8,8 @@ import AboutPage from "./pages/AboutPage";
 import ResourcesPage from "./pages/ResourcesPage";
 import ContactPage from "./pages/ContactPage";
 import AdmissionPage from "./pages/AdmissionPage";
+import PaymentPage from "./pages/PaymentPage";
+import SuccessPage from "./pages/SuccessPage";
 import { useEffect } from "react";
 
 // Wrapper for course detail to extract route params
@@ -40,6 +42,8 @@ function AppContent() {
           <Route path="/resources" element={<ResourcesPage onNavigate={handleNavigate} />} />
           <Route path="/contact" element={<ContactPage onNavigate={handleNavigate} />} />
           <Route path="/admission" element={<AdmissionPage onNavigate={handleNavigate} />} />
+          <Route path="/payment" element={<PaymentPage />} />
+          <Route path="/success" element={<SuccessPage />} />
           {/* fallback route */}
           <Route path="*" element={<HomePage onNavigate={handleNavigate} />} />
         </Routes>
