@@ -353,7 +353,24 @@ export default function AdmissionPage({ onNavigate }: AdmissionPageProps) {
             </form>
           </div>
 
-          <div className="mt-12 bg-gradient-to-br from-gray-50 to-primary-50/30 rounded-3xl p-8 text-center opacity-0 animate-fade-in-up" style={{ animationDelay: '600ms' }}>
+          <div className="mt-16 pt-12 border-t-2 border-gray-200">
+            <div className="bg-gradient-to-br from-accent-50 to-primary-50 rounded-3xl p-8 md:p-10 text-center opacity-0 animate-fade-in-up" style={{ animationDelay: '700ms' }}>
+              <h2 className="text-3xl font-serif font-bold text-gray-900 mb-4">
+                Already Applied?
+              </h2>
+              <p className="text-lg text-gray-700 mb-6 max-w-2xl mx-auto leading-relaxed">
+                If you've already applied and received a payment code, you can complete your payment below.
+              </p>
+              <button
+                onClick={() => onNavigate('payment')}
+                className="px-10 py-4 bg-accent-600 text-white font-semibold rounded-full hover:bg-accent-700 transition-all duration-300 hover:scale-105 shadow-lg hover:shadow-xl"
+              >
+                Proceed to Payment
+              </button>
+            </div>
+          </div>
+
+          <div className="mt-12 bg-gradient-to-br from-gray-50 to-primary-50/30 rounded-3xl p-8 text-center opacity-0 animate-fade-in-up" style={{ animationDelay: '800ms' }}>
             <h3 className="text-2xl font-serif font-bold text-gray-900 mb-4">
               Have Questions?
             </h3>
