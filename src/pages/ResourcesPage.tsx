@@ -139,7 +139,7 @@ export default function ResourcesPage({ onNavigate }: ResourcesPageProps) {
           </h1>
           <div className="w-20 h-1 bg-primary-700 mx-auto mb-6"></div>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
-            Free resources to support your mathematical journey
+            Free resources to support your educational journey
           </p>
         </div>
 
@@ -251,3 +251,4 @@ export default function ResourcesPage({ onNavigate }: ResourcesPageProps) {
     </div>
   );
 }
+
