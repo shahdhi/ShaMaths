@@ -102,13 +102,13 @@ export default function HomePage({ onNavigate }: HomePageProps) {
 
         <div className="relative max-w-7xl mx-auto px-6 lg:px-8 py-32 text-center">
           <h1 className={`text-5xl md:text-7xl lg:text-8xl font-serif font-bold text-gray-900 mb-8 leading-tight transition-all duration-1000 ${isVisible.hero ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
-            Mathematics,
+            Education,
             <br />
             <span className="text-primary-700">Mastered.</span>
           </h1>
           <p className={`text-lg md:text-xl text-gray-600 max-w-2xl mx-auto mb-12 leading-relaxed transition-all duration-1000 delay-200 ${isVisible.hero ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
-            Excellence in mathematics education with fully English instruction.
-            Build mastery from IGCSE to university level.
+            Excellence in education with fully English instruction.
+            Build mastery from IGCSE to university level across all subjects.
           </p>
           <div className={`flex flex-col sm:flex-row gap-4 justify-center transition-all duration-1000 delay-400 ${isVisible.hero ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
             <button
@@ -122,7 +122,7 @@ export default function HomePage({ onNavigate }: HomePageProps) {
               onClick={() => onNavigate('admission')}
               className="px-8 py-4 bg-white text-primary-700 font-medium rounded-full border-2 border-primary-700 hover:bg-primary-50 transition-all duration-300 hover:scale-105 shadow-lg hover:shadow-xl"
             >
-              Join Sha Maths
+              Join ShaDemy
             </button>
           </div>
         </div>
@@ -132,21 +132,21 @@ export default function HomePage({ onNavigate }: HomePageProps) {
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
           <div className={`text-center mb-16 transition-all duration-1000 ${isVisible.about ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
             <h2 className="text-4xl md:text-5xl font-serif font-bold text-gray-900 mb-4">
-              About Sha Maths
+              About ShaDemy
             </h2>
             <div className="w-20 h-1 bg-primary-700 mx-auto"></div>
           </div>
 
           <div className="max-w-4xl mx-auto space-y-6">
             <p className={`text-lg text-gray-700 leading-relaxed transition-all duration-1000 delay-100 ${isVisible.about ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
-              Sha Maths was founded on a simple belief: mathematics should be accessible,
+              ShaDemy was founded on a simple belief: education should be accessible,
               engaging, and transformative. We offer fully English instruction
-              for students seeking excellence in mathematics education.
+              for students seeking excellence across all subjects.
             </p>
             <p className={`text-lg text-gray-700 leading-relaxed transition-all duration-1000 delay-200 ${isVisible.about ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
-              Our founder brings years of teaching experience and a deep passion for
-              mathematical thinking. We believe in building not just computational skills,
-              but genuine understanding and problem-solving confidence.
+              Our educators bring years of teaching experience and a deep passion for
+              learning. We believe in building not just knowledge retention,
+              but genuine understanding and critical thinking confidence.
             </p>
             <p className={`text-lg text-gray-700 leading-relaxed transition-all duration-1000 delay-300 ${isVisible.about ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
               From IGCSE to university-level courses, we provide structured, personalized
@@ -164,7 +164,7 @@ export default function HomePage({ onNavigate }: HomePageProps) {
         <div className="max-w-7xl mx-auto px-6 lg:px-8 relative">
           <div className={`text-center mb-16 transition-all duration-1000 ${isVisible.features ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
             <h2 className="text-4xl md:text-5xl font-serif font-bold text-gray-900 mb-4">
-              Why Choose Sha Maths
+              Why Choose ShaDemy
             </h2>
             <div className="w-20 h-1 bg-primary-700 mx-auto"></div>
           </div>
@@ -255,7 +255,7 @@ export default function HomePage({ onNavigate }: HomePageProps) {
             Ready to Begin Your Journey?
           </h2>
           <p className="text-xl mb-10 text-primary-100 leading-relaxed">
-            Join students who are building confidence and achieving excellence in mathematics.
+            Join students who are building confidence and achieving excellence in their studies.
           </p>
           <button
             onClick={() => onNavigate('admission')}
