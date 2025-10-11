@@ -103,7 +103,7 @@ export default function AdmissionPage({ onNavigate }: AdmissionPageProps) {
     {
       number: '4',
       title: 'Enrollment',
-      description: 'Finalize enrollment details and begin your mathematical journey.',
+      description: 'Finalize enrollment details and begin your academic journey.',
     },
   ];
 
@@ -172,7 +172,7 @@ export default function AdmissionPage({ onNavigate }: AdmissionPageProps) {
           </h1>
           <div className="w-20 h-1 bg-primary-700 mx-auto mb-6"></div>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
-            Begin your journey toward mathematical excellence with personalized instruction and
+            Begin your journey toward academic excellence with personalized instruction and
             expert guidance
           </p>
         </div>
