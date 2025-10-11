@@ -51,9 +51,9 @@ export default function PaymentPage() {
       <div className="w-full max-w-md">
         <div className="text-center mb-8 animate-fade-in-up">
           <h1 className="text-3xl font-serif font-bold text-gray-900 mb-2">
-            ShaMaths
+            ShaDemy
           </h1>
-          <p className="text-sm text-gray-600">Excellence in Mathematics Education</p>
+          <p className="text-sm text-gray-600">Excellence in Education</p>
         </div>
 
         <div className="bg-white rounded-2xl shadow-xl p-8 animate-scale-in animate-delay-100">
