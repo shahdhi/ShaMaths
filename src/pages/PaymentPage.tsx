@@ -22,7 +22,7 @@ export default function PaymentPage() {
     try {
       // First check payment code
       const checkResponse = await fetch(
-        'https://YOUR_PROJECT_REF.supabase.co/functions/v1/check-payment-code',
+        'https://arlqwkkmjpvzchwksvyq.supabase.co/functions/v1/check-payment-code',
         {
           method: 'POST',
           headers: {
@@ -43,7 +43,7 @@ export default function PaymentPage() {
 
       // Create checkout session
       const sessionResponse = await fetch(
-        'https://YOUR_PROJECT_REF.supabase.co/functions/v1/create-checkout-session',
+        'https://arlqwkkmjpvzchwksvyq.supabase.co/functions/v1/create-checkout-session',
         {
           method: 'POST',
           headers: {
