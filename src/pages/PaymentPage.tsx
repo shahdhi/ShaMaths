@@ -70,13 +70,9 @@ export default function PaymentPage() {
     }
   };
 
+  // Simplified for LKR only
   const formatAmount = (currency, amount) => {
-    const formats = {
-      'USD': `$${(amount / 100).toFixed(2)}`,
-      'JPY': `¥${amount}`,
-      'LKR': `Rs ${amount}`
-    };
-    return formats[currency] || `$${(amount / 100).toFixed(2)}`;
+    return `Rs ${amount}`;
   };
 
   return (
@@ -122,7 +118,7 @@ export default function PaymentPage() {
                     ? 'border-red-300 focus:ring-red-200'
                     : 'border-gray-300 focus:ring-blue-200 focus:border-blue-500'
                 }`}
-                placeholder="Enter your code"
+                placeholder="Enter your payment code"
                 disabled={loading}
               />
               {error && (
@@ -137,8 +133,8 @@ export default function PaymentPage() {
                 <h3 className="font-medium text-green-800 mb-2">Payment Details</h3>
                 <div className="space-y-1 text-sm text-green-700">
                   <p><strong>Course:</strong> {paymentInfo.course_name}</p>
-                  <p><strong>Amount:</strong> {formatAmount(paymentInfo.currency, paymentInfo.amount)}</p>
-                  <p><strong>Currency:</strong> {paymentInfo.currency}</p>
+                  <p><strong>Amount:</strong> Rs {paymentInfo.amount}</p>
+                  <p><strong>Currency:</strong> LKR</p>
                 </div>
               </div>
             )}
@@ -155,7 +151,7 @@ export default function PaymentPage() {
                 </>
               ) : (
                 <span>
-                  {paymentInfo ? `Pay ${formatAmount(paymentInfo.currency, paymentInfo.amount)}` : 'Proceed to Payment'}
+                  {paymentInfo ? `Pay Rs ${paymentInfo.amount}` : 'Proceed to Payment'}
                 </span>
               )}
             </button>
