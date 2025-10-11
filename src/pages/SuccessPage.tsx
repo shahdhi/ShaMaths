@@ -71,7 +71,7 @@ export default function SuccessPage() {
             </h1>
 
             <p className="text-gray-600 text-lg mb-8 leading-relaxed px-4">
-              Thank you for your payment. Your enrollment at <span className="font-semibold text-primary-700">ShaMaths</span> is confirmed.
+              Thank you for your payment. Your enrollment at <span className="font-semibold text-primary-700">ShaDemy</span> is confirmed.
             </p>
 
             {/* Invoice Section */}
@@ -150,7 +150,7 @@ export default function SuccessPage() {
 
         <div className="mt-6 text-center">
           <p className="text-sm text-gray-600">
-            Welcome to the ShaMaths community!
+            Welcome to the ShaDemy community!
           </p>
         </div>
       </div>
