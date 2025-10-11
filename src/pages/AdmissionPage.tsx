@@ -316,7 +316,7 @@ export default function AdmissionPage({ onNavigate }: AdmissionPageProps) {
                   onChange={handleChange}
                   rows={5}
                   className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-all outline-none resize-none"
-                  placeholder="Tell us about your mathematical background, goals, or any questions you have..."
+                  placeholder="Tell us about your academic background, goals, or any questions you have..."
                 />
               </div>
 
