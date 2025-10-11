@@ -225,8 +225,8 @@ export default function CoursesPage({ onNavigate }: CoursesPageProps) {
           </h1>
           <div className="w-20 h-1 bg-primary-700 mx-auto mb-6"></div>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
-            Comprehensive mathematics programs designed to build mastery from foundation to
-            advanced levels
+            Comprehensive educational programs designed to build mastery from foundation to
+            advanced levels across all subjects
           </p>
         </div>
 
