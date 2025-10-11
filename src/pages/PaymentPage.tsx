@@ -5,7 +5,6 @@ export default function PaymentPage() {
   const [code, setCode] = useState('');
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
-  const [paymentInfo, setPaymentInfo] = useState(null);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -16,33 +15,11 @@ export default function PaymentPage() {
     }
 
     setError('');
-    setPaymentInfo(null);
     setLoading(true);
 
     try {
-      // First check payment code
-      const checkResponse = await fetch(
-        'https://arlqwkkmjpvzchwksvyq.supabase.co/functions/v1/check-payment-code',
-        {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-          },
-          body: JSON.stringify({ code: code.trim() }),
-        }
-      );
-
-      const checkData = await checkResponse.json();
-
-      if (!checkResponse.ok) {
-        throw new Error(checkData.error || 'Invalid payment code');
-      }
-
-      // Store payment info for display
-      setPaymentInfo(checkData);
-
-      // Create checkout session
-      const sessionResponse = await fetch(
+      // Directly create checkout session
+      const response = await fetch(
         'https://arlqwkkmjpvzchwksvyq.supabase.co/functions/v1/create-checkout-session',
         {
           method: 'POST',
@@ -53,26 +30,21 @@ export default function PaymentPage() {
         }
       );
 
-      const sessionData = await sessionResponse.json();
+      const data = await response.json();
 
-      if (!sessionResponse.ok) {
-        throw new Error(sessionData.error || 'Payment session failed');
+      if (!response.ok) {
+        throw new Error(data.error || 'Invalid payment code. Please try again.');
       }
 
-      if (sessionData.url) {
-        window.location.href = sessionData.url;
+      if (data.url) {
+        window.location.href = data.url;
       } else {
-        throw new Error('No payment URL received');
+        throw new Error('Payment session could not be created. Please contact support.');
       }
     } catch (err) {
       setError(err.message);
       setLoading(false);
     }
-  };
-
-  // Simplified for LKR only
-  const formatAmount = (currency, amount) => {
-    return `Rs ${amount}`;
   };
 
   return (
@@ -101,7 +73,10 @@ export default function PaymentPage() {
 
           <form onSubmit={handleSubmit} className="space-y-6">
             <div>
-              <label htmlFor="code" className="block text-sm font-medium text-gray-700 mb-2">
+              <label
+                htmlFor="code"
+                className="block text-sm font-medium text-gray-700 mb-2"
+              >
                 Payment Code
               </label>
               <input
@@ -111,14 +86,13 @@ export default function PaymentPage() {
                 onChange={(e) => {
                   setCode(e.target.value);
                   setError('');
-                  setPaymentInfo(null);
                 }}
                 className={`w-full px-4 py-3 border rounded-lg focus:outline-none focus:ring-2 transition-all ${
                   error
                     ? 'border-red-300 focus:ring-red-200'
                     : 'border-gray-300 focus:ring-blue-200 focus:border-blue-500'
                 }`}
-                placeholder="Enter your payment code"
+                placeholder="Enter your code"
                 disabled={loading}
               />
               {error && (
@@ -127,17 +101,6 @@ export default function PaymentPage() {
                 </p>
               )}
             </div>
-
-            {paymentInfo && (
-              <div className="bg-green-50 border border-green-200 rounded-lg p-4">
-                <h3 className="font-medium text-green-800 mb-2">Payment Details</h3>
-                <div className="space-y-1 text-sm text-green-700">
-                  <p><strong>Course:</strong> {paymentInfo.course_name}</p>
-                  <p><strong>Amount:</strong> Rs {paymentInfo.amount}</p>
-                  <p><strong>Currency:</strong> LKR</p>
-                </div>
-              </div>
-            )}
 
             <button
               type="submit"
@@ -150,9 +113,7 @@ export default function PaymentPage() {
                   <span>Processing...</span>
                 </>
               ) : (
-                <span>
-                  {paymentInfo ? `Pay Rs ${paymentInfo.amount}` : 'Proceed to Payment'}
-                </span>
+                <span>Proceed to Payment</span>
               )}
             </button>
           </form>
