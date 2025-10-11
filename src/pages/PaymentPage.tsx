@@ -5,6 +5,7 @@ export default function PaymentPage() {
   const [code, setCode] = useState('');
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
+  const [paymentInfo, setPaymentInfo] = useState(null);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -15,11 +16,13 @@ export default function PaymentPage() {
     }
 
     setError('');
+    setPaymentInfo(null);
     setLoading(true);
 
     try {
-      const response = await fetch(
-        'https://arlqwkkmjpvzchwksvyq.functions.supabase.co/create-checkout-session',
+      // First, check the payment code and get currency info
+      const checkResponse = await fetch(
+        'https://arlqwkkmjpvzchwksvyq.functions.supabase.co/check-payment-code',
         {
           method: 'POST',
           headers: {
@@ -29,14 +32,39 @@ export default function PaymentPage() {
         }
       );
 
-      const data = await response.json();
+      const checkData = await checkResponse.json();
 
-      if (!response.ok) {
-        throw new Error(data.error || 'Invalid payment code. Please try again.');
+      if (!checkResponse.ok) {
+        throw new Error(checkData.error || 'Invalid payment code. Please try again.');
       }
 
-      if (data.url) {
-        window.location.href = data.url;
+      // Store payment info for display
+      setPaymentInfo(checkData);
+
+      // Now create checkout session with currency info
+      const sessionResponse = await fetch(
+        'https://arlqwkkmjpvzchwksvyq.functions.supabase.co/create-checkout-session',
+        {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({ 
+            code: code.trim(),
+            currency: checkData.currency,
+            amount: checkData.amount
+          }),
+        }
+      );
+
+      const sessionData = await sessionResponse.json();
+
+      if (!sessionResponse.ok) {
+        throw new Error(sessionData.error || 'Payment session could not be created. Please contact support.');
+      }
+
+      if (sessionData.url) {
+        window.location.href = sessionData.url;
       } else {
         throw new Error('Payment session could not be created. Please contact support.');
       }
@@ -44,6 +72,15 @@ export default function PaymentPage() {
       setError(err instanceof Error ? err.message : 'Something went wrong. Please try again.');
       setLoading(false);
     }
+  };
+
+  const formatAmount = (currency, amount) => {
+    const formats = {
+      'USD': `$${(amount / 100).toFixed(2)}`,
+      'JPY': `¥${amount}`,
+      'LKR': `Rs ${amount}`
+    };
+    return formats[currency] || `$${(amount / 100).toFixed(2)}`;
   };
 
   return (
@@ -85,6 +122,7 @@ export default function PaymentPage() {
                 onChange={(e) => {
                   setCode(e.target.value);
                   setError('');
+                  setPaymentInfo(null);
                 }}
                 className={`w-full px-4 py-3 border rounded-lg focus:outline-none focus:ring-2 transition-all ${
                   error
@@ -101,6 +139,18 @@ export default function PaymentPage() {
               )}
             </div>
 
+            {/* Payment Details Display */}
+            {paymentInfo && (
+              <div className="bg-green-50 border border-green-200 rounded-lg p-4 animate-fade-in">
+                <h3 className="font-medium text-green-800 mb-2">Payment Details</h3>
+                <div className="space-y-1 text-sm text-green-700">
+                  <p><strong>Course:</strong> {paymentInfo.course_name}</p>
+                  <p><strong>Amount:</strong> {formatAmount(paymentInfo.currency, paymentInfo.amount)}</p>
+                  <p><strong>Currency:</strong> {paymentInfo.currency}</p>
+                </div>
+              </div>
+            )}
+
             <button
               type="submit"
               disabled={loading || !code.trim()}
@@ -112,7 +162,9 @@ export default function PaymentPage() {
                   <span>Processing...</span>
                 </>
               ) : (
-                <span>Proceed to Payment</span>
+                <span>
+                  {paymentInfo ? `Pay ${formatAmount(paymentInfo.currency, paymentInfo.amount)}` : 'Proceed to Payment'}
+                </span>
               )}
             </button>
           </form>
