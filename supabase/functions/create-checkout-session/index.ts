@@ -63,7 +63,7 @@ Deno.serve(async (req) => {
       line_items: [
         {
           price_data: {
-            currency: "usd",
+            currency: data.currency,
             product_data: {
               name: `Course Payment - ${student_name}`,
               description: `Course enrollment for ${student_name}`
