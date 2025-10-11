@@ -39,13 +39,13 @@ export default function Navigation({ currentPage, onNavigate }: NavigationProps)
         <div className="flex items-center justify-between h-20">
           <button
             onClick={() => onNavigate('home')}
-            className="flex items-center space-x-3 hover:opacity-80 transition-opacity"
+            className="flex items-center space-x-2 hover:opacity-80 transition-opacity"
           >
             {/* Logo */}
             <img 
               src="https://copilot.microsoft.com/th/id/BCO.3ad9fccd-c92c-4821-9339-aca7831f35fc.png" 
               alt="ShaDemy Logo"
-              className="w-12 h-18 object-contain"
+              className="w-12 h-22 object-contain"
             />
             {/* Brand Name */}
             <span className="text-2xl font-serif font-bold text-gray-900">
