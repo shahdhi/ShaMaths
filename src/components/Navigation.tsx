@@ -45,7 +45,7 @@ export default function Navigation({ currentPage, onNavigate }: NavigationProps)
             <img 
               src="https://copilot.microsoft.com/th/id/BCO.3ad9fccd-c92c-4821-9339-aca7831f35fc.png" 
               alt="ShaDemy Logo"
-              className="w-10 h-10 object-contain"
+              className="w-12 h-18 object-contain"
             />
             {/* Brand Name */}
             <span className="text-2xl font-serif font-bold text-gray-900">
