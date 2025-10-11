@@ -1,4 +1,5 @@
-import Stripe from "https://esm.sh/stripe@16.10.0";
+// Use imports from deno.json
+import Stripe from "stripe";
 
 const stripe = new Stripe(Deno.env.get("STRIPE_SECRET_KEY")!, {
   apiVersion: "2024-06-20"
@@ -43,40 +44,12 @@ Deno.serve(async (req) => {
         status: "existing"
       }), { headers });
     } else {
-      // If no invoice exists, try to create one from payment intent
-      if (session.payment_intent) {
-        const paymentIntent = await stripe.paymentIntents.retrieve(session.payment_intent as string);
-        
-        const invoice = await stripe.invoices.create({
-          customer: session.customer as string,
-          collection_method: 'charge_automatically',
-        });
-
-        // Add invoice item
-        await stripe.invoiceItems.create({
-          customer: session.customer as string,
-          invoice: invoice.id,
-          amount: session.amount_total || 0,
-          currency: 'usd',
-          description: `Course Payment - ${session.metadata?.student_name || 'Student'}`,
-        });
-
-        // Finalize invoice
-        const finalizedInvoice = await stripe.invoices.finalizeInvoice(invoice.id);
-        
-        return new Response(JSON.stringify({ 
-          invoice_url: finalizedInvoice.hosted_invoice_url,
-          invoice_pdf: finalizedInvoice.invoice_pdf,
-          status: "created"
-        }), { headers });
-      } else {
-        return new Response(JSON.stringify({ 
-          error: "No invoice available for this session"
-        }), { 
-          status: 404,
-          headers,
-        });
-      }
+      return new Response(JSON.stringify({ 
+        error: "No invoice available for this session yet"
+      }), { 
+        status: 404,
+        headers,
+      });
     }
 
   } catch (err) {
