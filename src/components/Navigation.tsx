@@ -39,7 +39,7 @@ export default function Navigation({ currentPage, onNavigate }: NavigationProps)
         <div className="flex items-center justify-between h-20">
           <button
             onClick={() => onNavigate('home')}
-            className="flex items-center space-x-2 hover:opacity-80 transition-opacity"
+            className="flex items-center space-x-1 hover:opacity-80 transition-opacity"
           >
             {/* Logo */}
             <img 
