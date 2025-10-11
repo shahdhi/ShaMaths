@@ -194,7 +194,7 @@ export default function ContactPage({ onNavigate }: ContactPageProps) {
                   </div>
                   <div>
                     <h3 className="font-semibold mb-1">Email</h3>
-                    <p className="text-primary-100">contact@shamaths.com</p>
+                    <p className="text-primary-100">contact@shademy.com</p>
                   </div>
                 </div>
 
@@ -225,7 +225,7 @@ export default function ContactPage({ onNavigate }: ContactPageProps) {
                 Ready to Apply?
               </h3>
               <p className="text-gray-600 mb-6">
-                If you're ready to start your mathematical journey with us, visit our admission
+                If you're ready to start your educational journey with us, visit our admission
                 page to begin the application process.
               </p>
               <button
