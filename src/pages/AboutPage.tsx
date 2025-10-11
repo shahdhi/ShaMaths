@@ -64,11 +64,11 @@ export default function AboutPage({ onNavigate }: AboutPageProps) {
       <div className="max-w-7xl mx-auto px-6 lg:px-8 relative">
         <div className="text-center mb-16 opacity-0 animate-fade-in-up">
           <h1 className="text-5xl md:text-6xl font-serif font-bold text-gray-900 mb-6">
-            About Sha Maths
+            About ShaDemy
           </h1>
           <div className="w-20 h-1 bg-primary-700 mx-auto mb-6"></div>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
-            Building mathematical excellence through expert instruction and personalized learning
+            Building educational excellence through expert instruction and personalized learning
           </p>
         </div>
 
@@ -88,22 +88,22 @@ export default function AboutPage({ onNavigate }: AboutPageProps) {
               <h2 className="text-3xl font-serif font-bold text-gray-900 mb-6">Our Story</h2>
               <div className="space-y-6 text-lg text-gray-700 leading-relaxed">
                 <p>
-                  Sha Maths was founded on a simple yet powerful belief: mathematics should be
+                  ShaDemy was founded on a simple yet powerful belief: education should be
                   accessible, engaging, and transformative. We offer fully
-                  English instruction for students seeking excellence in mathematics education,
+                  English instruction for students seeking excellence across all subjects,
                   from IGCSE through university level.
                 </p>
                 <p>
-                  Our founder brings extensive teaching experience and a deep passion for
-                  mathematical thinking. Having witnessed countless students struggle not with
-                  mathematics itself, but with how it was taught, Sha Maths was created to
+                  Our team brings extensive teaching experience and a deep passion for
+                  learning. Having witnessed countless students struggle not with the subjects
+                  themselves, but with how they were taught, ShaDemy was created to
                   bridge that gap.
                 </p>
                 <p>
-                  We believe that mathematics is more than formulas and procedures. It is a way
-                  of thinking, a language for describing patterns, and a tool for solving
-                  problems. Our mission is to help students discover the elegance and power of
-                  mathematical reasoning.
+                  We believe that education is more than memorization and procedures. It is a way
+                  of thinking, a method for understanding the world, and a tool for solving
+                  problems. Our mission is to help students discover the joy and power of
+                  learning across all disciplines.
                 </p>
               </div>
             </div>
@@ -114,8 +114,8 @@ export default function AboutPage({ onNavigate }: AboutPageProps) {
               </h2>
               <div className="space-y-6 text-lg text-gray-700 leading-relaxed">
                 <p>
-                  At Sha Maths, we believe in building genuine understanding rather than mere
-                  computational ability. Our approach emphasizes:
+                  At ShaDemy, we believe in building genuine understanding rather than mere
+                  rote memorization. Our approach emphasizes:
                 </p>
                 <ul className="space-y-4 ml-6">
                   <li className="flex items-start transition-all duration-300 hover:translate-x-1">
@@ -129,8 +129,8 @@ export default function AboutPage({ onNavigate }: AboutPageProps) {
                     <span className="text-primary-700 mr-3 text-2xl font-bold">•</span>
                     <span>
                       <strong className="text-gray-900">Problem-Solving Skills:</strong>{' '}
-                      Mathematics is learned by doing. We provide extensive practice with
-                      carefully selected problems.
+                      Learning is enhanced by doing. We provide extensive practice with
+                      carefully selected exercises.
                     </span>
                   </li>
                   <li className="flex items-start transition-all duration-300 hover:translate-x-1">
@@ -145,7 +145,7 @@ export default function AboutPage({ onNavigate }: AboutPageProps) {
                     <span className="text-primary-700 mr-3 text-2xl font-bold">•</span>
                     <span>
                       <strong className="text-gray-900">Confidence Building:</strong> We help
-                      students develop the self-assurance to tackle challenging problems
+                      students develop the self-assurance to tackle challenging topics
                       independently.
                     </span>
                   </li>
@@ -196,15 +196,15 @@ export default function AboutPage({ onNavigate }: AboutPageProps) {
                 <ul className="space-y-3 ml-6">
                   <li className="flex items-start transition-all duration-300 hover:translate-x-1">
                     <span className="text-primary-700 mr-3">✓</span>
-                    <span>IGCSE Mathematics examinations (Core and Extended)</span>
+                    <span>IGCSE examinations across multiple subjects</span>
                   </li>
                   <li className="flex items-start transition-all duration-300 hover:translate-x-1">
                     <span className="text-primary-700 mr-3">✓</span>
-                    <span>International A-Level (IAL) Pure Mathematics</span>
+                    <span>International A-Level (IAL) programs</span>
                   </li>
                   <li className="flex items-start transition-all duration-300 hover:translate-x-1">
                     <span className="text-primary-700 mr-3">✓</span>
-                    <span>University-level calculus and linear algebra courses</span>
+                    <span>University-level courses across STEM and humanities</span>
                   </li>
                   <li className="flex items-start transition-all duration-300 hover:translate-x-1">
                     <span className="text-primary-700 mr-3">✓</span>
@@ -214,8 +214,8 @@ export default function AboutPage({ onNavigate }: AboutPageProps) {
                 <p>
                   Our students have achieved exceptional results and progressed to top
                   universities worldwide. We take pride in not just preparing students for
-                  examinations, but in fostering a lasting appreciation for mathematical
-                  thinking.
+                  examinations, but in fostering a lasting appreciation for
+                  learning.
                 </p>
               </div>
             </div>
@@ -224,11 +224,11 @@ export default function AboutPage({ onNavigate }: AboutPageProps) {
 
         <div className="bg-gradient-to-br from-primary-700 to-primary-900 rounded-3xl p-12 text-white text-center opacity-0 animate-scale-in" style={{ animationDelay: '600ms' }}>
           <h2 className="text-3xl md:text-4xl font-serif font-bold mb-6">
-            Join the Sha Maths Community
+            Join the ShaDemy Community
           </h2>
           <p className="text-xl text-primary-100 mb-8 max-w-2xl mx-auto leading-relaxed">
             Experience the difference that expert instruction and genuine passion for teaching can
-            make in your mathematical journey.
+            make in your educational journey.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <button
