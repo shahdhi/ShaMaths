@@ -41,7 +41,7 @@ export default function Navigation({ currentPage, onNavigate }: NavigationProps)
             onClick={() => onNavigate('home')}
             className="text-2xl font-serif font-bold text-gray-900 hover:text-primary-700 transition-colors"
           >
-            Sha Maths
+            ShaDemy
           </button>
 
           <div className="hidden md:flex items-center space-x-8">
