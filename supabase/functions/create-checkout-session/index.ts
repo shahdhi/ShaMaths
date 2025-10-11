@@ -1,4 +1,3 @@
-// Use imports from deno.json
 import { createClient } from "@supabase/supabase-js";
 import Stripe from "stripe";
 
@@ -56,7 +55,7 @@ Deno.serve(async (req) => {
     console.log("✅ Valid code found:", data);
     const { amount, email, student_name } = data;
 
-    // Create Stripe Checkout session IN USD
+    // Create Stripe Checkout session - UPDATED DOMAIN
     const session = await stripe.checkout.sessions.create({
       mode: "payment",
       payment_method_types: ["card"],
@@ -74,6 +73,7 @@ Deno.serve(async (req) => {
           quantity: 1,
         },
       ],
+      // ✅ UPDATED DOMAIN
       success_url: "https://shademy.netlify.app/success?session_id={CHECKOUT_SESSION_ID}",
       cancel_url: "https://shademy.netlify.app/payment",
       metadata: {
