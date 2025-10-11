@@ -74,8 +74,8 @@ Deno.serve(async (req) => {
           quantity: 1,
         },
       ],
-      success_url: "https://shamaths.netlify.app/success?session_id={CHECKOUT_SESSION_ID}",
-      cancel_url: "https://shamaths.netlify.app/payment",
+      success_url: "https://shademy.netlify.app/success?session_id={CHECKOUT_SESSION_ID}",
+      cancel_url: "https://shademy.netlify.app/payment",
       metadata: {
         payment_code: code,
         student_name: student_name
