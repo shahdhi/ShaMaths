@@ -7,7 +7,7 @@ export default function PaymentPage() {
   const [error, setError] = useState('');
   const [paymentInfo, setPaymentInfo] = useState(null);
 
-  const handleSubmit = async (e: React.FormEvent) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
 
     if (!code.trim()) {
@@ -20,9 +20,9 @@ export default function PaymentPage() {
     setLoading(true);
 
     try {
-      // First, check the payment code and get currency info
+      // First check payment code
       const checkResponse = await fetch(
-        'https://arlqwkkmjpvzchwksvyq.functions.supabase.co/check-payment-code',
+        'https://YOUR_PROJECT_REF.supabase.co/functions/v1/check-payment-code',
         {
           method: 'POST',
           headers: {
@@ -35,41 +35,37 @@ export default function PaymentPage() {
       const checkData = await checkResponse.json();
 
       if (!checkResponse.ok) {
-        throw new Error(checkData.error || 'Invalid payment code. Please try again.');
+        throw new Error(checkData.error || 'Invalid payment code');
       }
 
       // Store payment info for display
       setPaymentInfo(checkData);
 
-      // Now create checkout session with currency info
+      // Create checkout session
       const sessionResponse = await fetch(
-        'https://arlqwkkmjpvzchwksvyq.functions.supabase.co/create-checkout-session',
+        'https://YOUR_PROJECT_REF.supabase.co/functions/v1/create-checkout-session',
         {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
           },
-          body: JSON.stringify({ 
-            code: code.trim(),
-            currency: checkData.currency,
-            amount: checkData.amount
-          }),
+          body: JSON.stringify({ code: code.trim() }),
         }
       );
 
       const sessionData = await sessionResponse.json();
 
       if (!sessionResponse.ok) {
-        throw new Error(sessionData.error || 'Payment session could not be created. Please contact support.');
+        throw new Error(sessionData.error || 'Payment session failed');
       }
 
       if (sessionData.url) {
         window.location.href = sessionData.url;
       } else {
-        throw new Error('Payment session could not be created. Please contact support.');
+        throw new Error('No payment URL received');
       }
     } catch (err) {
-      setError(err instanceof Error ? err.message : 'Something went wrong. Please try again.');
+      setError(err.message);
       setLoading(false);
     }
   };
@@ -86,17 +82,17 @@ export default function PaymentPage() {
   return (
     <div className="min-h-screen bg-gradient-to-br from-gray-50 via-blue-50 to-gray-100 flex items-center justify-center px-4 py-12">
       <div className="w-full max-w-md">
-        <div className="text-center mb-8 animate-fade-in-up">
+        <div className="text-center mb-8">
           <h1 className="text-3xl font-serif font-bold text-gray-900 mb-2">
             ShaDemy
           </h1>
           <p className="text-sm text-gray-600">Excellence in Education</p>
         </div>
 
-        <div className="bg-white rounded-2xl shadow-xl p-8 animate-scale-in animate-delay-100">
+        <div className="bg-white rounded-2xl shadow-xl p-8">
           <div className="flex items-center justify-center mb-6">
-            <div className="p-3 bg-primary-50 rounded-full">
-              <CreditCard className="w-8 h-8 text-primary-700" />
+            <div className="p-3 bg-blue-50 rounded-full">
+              <CreditCard className="w-8 h-8 text-blue-700" />
             </div>
           </div>
 
@@ -109,10 +105,7 @@ export default function PaymentPage() {
 
           <form onSubmit={handleSubmit} className="space-y-6">
             <div>
-              <label
-                htmlFor="code"
-                className="block text-sm font-medium text-gray-700 mb-2"
-              >
+              <label htmlFor="code" className="block text-sm font-medium text-gray-700 mb-2">
                 Payment Code
               </label>
               <input
@@ -127,21 +120,20 @@ export default function PaymentPage() {
                 className={`w-full px-4 py-3 border rounded-lg focus:outline-none focus:ring-2 transition-all ${
                   error
                     ? 'border-red-300 focus:ring-red-200'
-                    : 'border-gray-300 focus:ring-primary-200 focus:border-primary-500'
+                    : 'border-gray-300 focus:ring-blue-200 focus:border-blue-500'
                 }`}
                 placeholder="Enter your code"
                 disabled={loading}
               />
               {error && (
-                <p className="mt-2 text-sm text-red-600 animate-fade-in">
+                <p className="mt-2 text-sm text-red-600">
                   {error}
                 </p>
               )}
             </div>
 
-            {/* Payment Details Display */}
             {paymentInfo && (
-              <div className="bg-green-50 border border-green-200 rounded-lg p-4 animate-fade-in">
+              <div className="bg-green-50 border border-green-200 rounded-lg p-4">
                 <h3 className="font-medium text-green-800 mb-2">Payment Details</h3>
                 <div className="space-y-1 text-sm text-green-700">
                   <p><strong>Course:</strong> {paymentInfo.course_name}</p>
@@ -154,7 +146,7 @@ export default function PaymentPage() {
             <button
               type="submit"
               disabled={loading || !code.trim()}
-              className="w-full px-6 py-3.5 bg-primary-700 text-white font-medium rounded-lg hover:bg-primary-800 focus:outline-none focus:ring-4 focus:ring-primary-200 transition-all duration-300 disabled:bg-gray-300 disabled:cursor-not-allowed flex items-center justify-center space-x-2 shadow-lg hover:shadow-xl disabled:shadow-none hover:scale-[1.02] disabled:scale-100"
+              className="w-full px-6 py-3.5 bg-blue-700 text-white font-medium rounded-lg hover:bg-blue-800 focus:outline-none focus:ring-4 focus:ring-blue-200 transition-all duration-300 disabled:bg-gray-300 disabled:cursor-not-allowed flex items-center justify-center space-x-2"
             >
               {loading ? (
                 <>
@@ -171,7 +163,7 @@ export default function PaymentPage() {
 
           <div className="mt-6 pt-6 border-t border-gray-100">
             <div className="flex items-start space-x-3">
-              <Shield className="w-5 h-5 text-accent-600 mt-0.5 flex-shrink-0" />
+              <Shield className="w-5 h-5 text-green-600 mt-0.5 flex-shrink-0" />
               <p className="text-xs text-gray-600 leading-relaxed">
                 You'll be redirected to Stripe Checkout to complete your payment securely.
                 Your payment information is encrypted and protected.
@@ -181,7 +173,7 @@ export default function PaymentPage() {
         </div>
 
         <p className="text-center text-xs text-gray-500 mt-6">
-          Need help? <a href="/contact" className="text-primary-700 hover:text-primary-800 font-medium">Contact us</a>
+          Need help? <a href="/contact" className="text-blue-700 hover:text-blue-800 font-medium">Contact us</a>
         </p>
       </div>
     </div>
