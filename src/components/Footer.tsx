@@ -12,9 +12,9 @@ export default function Footer({ onNavigate }: FooterProps) {
       <div className="max-w-7xl mx-auto px-6 lg:px-8 py-16">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-12">
           <div>
-            <h3 className="text-white text-2xl font-serif font-bold mb-4">Sha Maths</h3>
+            <h3 className="text-white text-2xl font-serif font-bold mb-4">ShaDemy</h3>
             <p className="text-sm leading-relaxed mb-6">
-              Excellence in mathematics education with fully English instruction.
+              Excellence in education with fully English instruction across diverse subjects.
             </p>
             <div className="flex space-x-4">
               <a
@@ -55,17 +55,17 @@ export default function Footer({ onNavigate }: FooterProps) {
             <ul className="space-y-3">
               <li>
                 <button className="text-sm hover:text-white transition-colors">
-                  University Mathematics
+                  STEM Subjects
                 </button>
               </li>
               <li>
                 <button className="text-sm hover:text-white transition-colors">
-                  A-Level (IAL)
+                  A-Level Programs
                 </button>
               </li>
               <li>
                 <button className="text-sm hover:text-white transition-colors">
-                  IGCSE Maths
+                  IGCSE Courses
                 </button>
               </li>
             </ul>
@@ -76,7 +76,7 @@ export default function Footer({ onNavigate }: FooterProps) {
             <ul className="space-y-3">
               <li className="flex items-start space-x-3">
                 <Mail size={18} className="mt-0.5 flex-shrink-0" />
-                <span className="text-sm">contact@shamaths.com</span>
+                <span className="text-sm">contact@shademy.com</span>
               </li>
               <li className="flex items-start space-x-3">
                 <Phone size={18} className="mt-0.5 flex-shrink-0" />
@@ -92,7 +92,7 @@ export default function Footer({ onNavigate }: FooterProps) {
 
         <div className="pt-8 border-t border-gray-800 flex flex-col md:flex-row justify-between items-center">
           <p className="text-sm mb-4 md:mb-0">
-            © {currentYear} Sha Maths. All rights reserved.
+            © {currentYear} ShaDemy. All rights reserved.
           </p>
           <div className="flex space-x-6 text-sm">
             <button className="hover:text-white transition-colors">Privacy Policy</button>
