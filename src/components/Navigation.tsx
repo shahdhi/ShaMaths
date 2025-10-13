@@ -49,7 +49,7 @@ export default function Navigation({ currentPage, onNavigate }: NavigationProps)
             />
             {/* Brand Name */}
             <span className="text-2xl font-serif font-bold text-gray-900">
-              ShaDemy
+              Sha Bridge College
             </span>
           </button>
 
