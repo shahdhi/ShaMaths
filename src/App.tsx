@@ -10,6 +10,7 @@ import ContactPage from "./pages/ContactPage";
 import AdmissionPage from "./pages/AdmissionPage";
 import PaymentPage from "./pages/PaymentPage";
 import SuccessPage from "./pages/SuccessPage";
+import SessionBookingPage from "./pages/SessionBookingPage";
 import { useEffect } from "react";
 
 // Wrapper for course detail to extract route params
@@ -44,6 +45,7 @@ function AppContent() {
           <Route path="/admission" element={<AdmissionPage onNavigate={handleNavigate} />} />
           <Route path="/payment" element={<PaymentPage />} />
           <Route path="/success" element={<SuccessPage />} />
+          <Route path="/session-booking" element={<SessionBookingPage />} />
           {/* fallback route */}
           <Route path="*" element={<HomePage onNavigate={handleNavigate} />} />
         </Routes>
