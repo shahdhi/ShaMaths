@@ -39,9 +39,18 @@ export default function Navigation({ currentPage, onNavigate }: NavigationProps)
         <div className="flex items-center justify-between h-20">
           <button
             onClick={() => onNavigate('home')}
-            className="text-2xl font-serif font-bold text-gray-900 hover:text-primary-700 transition-colors"
+            className="flex items-center space-x-1 hover:opacity-80 transition-opacity"
           >
-            ShaDemy
+            {/* Logo */}
+            <img 
+              src="https://copilot.microsoft.com/th/id/BCO.3ad9fccd-c92c-4821-9339-aca7831f35fc.png" 
+              alt="ShaDemy Logo"
+              className="w-12 h-22 object-contain"
+            />
+            {/* Brand Name */}
+            <span className="text-2xl font-serif font-bold text-gray-900">
+              ShaDemy
+            </span>
           </button>
 
           <div className="hidden md:flex items-center space-x-8">
