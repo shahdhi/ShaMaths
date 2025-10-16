@@ -1,4 +1,5 @@
 import { ArrowLeft, BookOpen, Clock, Users, Calendar, Award, CheckCircle } from 'lucide-react';
+import { useNavigate } from 'react-router-dom';
 
 interface CourseDetailPageProps {
   courseId: string;
@@ -6,6 +7,8 @@ interface CourseDetailPageProps {
 }
 
 export default function CourseDetailPage({ courseId, onNavigate }: CourseDetailPageProps) {
+  const navigate = useNavigate();
+  
   const courseDetails: Record<string, any> = {
     'beginner-a1': {
       title: 'Foundations of Algebra & Arithmetic',
@@ -497,12 +500,24 @@ export default function CourseDetailPage({ courseId, onNavigate }: CourseDetailP
               <span className="text-4xl font-bold">¥1,000</span>
             </div>
           </div>
+          
+          {/* ADDED SESSION BOOKING BUTTON */}
+          <div className="text-center mb-6">
+            <button
+              onClick={() => navigate('/session-booking', { state: { courseName: course.title } })}
+              className="bg-gradient-to-r from-green-500 to-green-600 text-white px-8 py-4 rounded-xl font-bold text-lg hover:from-green-600 hover:to-green-700 transition-all duration-300 shadow-lg hover:shadow-xl hover:scale-105 mb-4"
+            >
+              Book Session - ¥1,000
+            </button>
+            <p className="text-green-200 text-sm">One-on-one tutoring session</p>
+          </div>
+
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <button
               onClick={() => onNavigate('payment')}
               className="px-8 py-4 bg-white text-primary-700 font-semibold rounded-full hover:bg-gray-50 transition-all duration-300 hover:scale-105 shadow-xl"
             >
-              Book This Course
+              Use Payment Code
             </button>
             <button
               onClick={() => onNavigate('contact')}
