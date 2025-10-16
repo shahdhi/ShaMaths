@@ -4,8 +4,6 @@ import { resolve } from "path";
 import { copyFileSync, existsSync } from "fs";
 
 export default defineConfig({
-  // ✅ Use '/' for custom domain like shademy.online
-  base: "/",
   plugins: [
     react(),
     {
