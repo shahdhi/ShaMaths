@@ -306,12 +306,27 @@ export default function CoursesPage({ onNavigate }: CoursesPageProps) {
                   </div>
                 </div>
 
-                <button
-                  onClick={() => onNavigate('course-detail', course.id)}
-                  className="w-full py-3.5 bg-primary-700 text-white font-semibold rounded-full hover:bg-primary-800 transition-all duration-300 hover:scale-105 shadow-lg group-hover:shadow-xl"
-                >
-                  View Full Details
-                </button>
+                <div className="mb-4 p-4 bg-gradient-to-r from-accent-50 to-primary-50 rounded-xl border border-primary-200">
+                  <div className="flex items-center justify-between">
+                    <span className="text-gray-700 font-medium">Price per session</span>
+                    <span className="text-2xl font-bold text-primary-700">¥1,000</span>
+                  </div>
+                </div>
+
+                <div className="flex gap-3">
+                  <button
+                    onClick={() => onNavigate('course-detail', course.id)}
+                    className="flex-1 py-3.5 bg-white text-primary-700 font-semibold rounded-full border-2 border-primary-700 hover:bg-primary-50 transition-all duration-300 hover:scale-105"
+                  >
+                    View Details
+                  </button>
+                  <button
+                    onClick={() => onNavigate('payment', course.id)}
+                    className="flex-1 py-3.5 bg-primary-700 text-white font-semibold rounded-full hover:bg-primary-800 transition-all duration-300 hover:scale-105 shadow-lg group-hover:shadow-xl"
+                  >
+                    Book Now
+                  </button>
+                </div>
               </div>
             </div>
           );})}
