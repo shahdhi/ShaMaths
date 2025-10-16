@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { BookOpen, Clock, Users, Calendar, Calculator, TrendingUp, Award, Target } from 'lucide-react';
+import { useNavigate } from 'react-router-dom';
 
 interface CoursesPageProps {
   onNavigate: (page: string, courseId?: string) => void;
@@ -7,6 +8,7 @@ interface CoursesPageProps {
 
 export default function CoursesPage({ onNavigate }: CoursesPageProps) {
   const [selectedLevel, setSelectedLevel] = useState<string>('all');
+  const navigate = useNavigate();
 
   const courseImages = {
     'Beginner': 'https://tse2.mm.bing.net/th/id/OIP.bV6woY3kMkWby_uVZhyYdAHaFj?cb=12&rs=1&pid=ImgDetMain&o=7&rm=3',
@@ -313,6 +315,17 @@ export default function CoursesPage({ onNavigate }: CoursesPageProps) {
                   </div>
                 </div>
 
+                {/* ADDED SESSION BOOKING BUTTON */}
+                <div className="text-center mb-4">
+                  <button
+                    onClick={() => navigate('/session-booking', { state: { courseName: course.title } })}
+                    className="w-full bg-green-500 text-white py-3 px-4 rounded-lg font-semibold hover:bg-green-600 transition-all duration-300 hover:scale-105 shadow-md mb-2"
+                  >
+                    Book Session - ¥1,000
+                  </button>
+                  <p className="text-green-600 text-sm">Direct booking with instant confirmation</p>
+                </div>
+
                 <div className="flex gap-3">
                   <button
                     onClick={() => onNavigate('course-detail', course.id)}
@@ -321,10 +334,10 @@ export default function CoursesPage({ onNavigate }: CoursesPageProps) {
                     View Details
                   </button>
                   <button
-                    onClick={() => onNavigate('payment', course.id)}
+                    onClick={() => onNavigate('payment')}
                     className="flex-1 py-3.5 bg-primary-700 text-white font-semibold rounded-full hover:bg-primary-800 transition-all duration-300 hover:scale-105 shadow-lg group-hover:shadow-xl"
                   >
-                    Book Now
+                    Use Payment Code
                   </button>
                 </div>
               </div>
