@@ -74,8 +74,8 @@ Deno.serve(async (req) => {
         },
       ],
       // ✅ UPDATED DOMAIN
-      success_url: "https://shademy.netlify.app/success?session_id={CHECKOUT_SESSION_ID}",
-      cancel_url: "https://shademy.netlify.app/payment",
+      success_url: "https://shademy.online/success?session_id={CHECKOUT_SESSION_ID}",
+      cancel_url: "https://shademy.online/payment",
       metadata: {
         payment_code: code,
         student_name: student_name
