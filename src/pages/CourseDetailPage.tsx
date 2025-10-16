@@ -487,16 +487,22 @@ export default function CourseDetailPage({ courseId, onNavigate }: CourseDetailP
 
         <div className="bg-gradient-to-br from-primary-700 to-primary-900 rounded-3xl p-12 text-white text-center">
           <h2 className="text-3xl font-serif font-bold mb-4">Ready to Enroll?</h2>
-          <p className="text-xl text-primary-100 mb-8 max-w-2xl mx-auto">
+          <p className="text-xl text-primary-100 mb-4 max-w-2xl mx-auto">
             Start your journey toward mathematical mastery with expert guidance and personalized
             instruction.
           </p>
+          <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 mb-8 inline-block">
+            <div className="flex items-center justify-center gap-3">
+              <span className="text-primary-100 text-lg">Price per session:</span>
+              <span className="text-4xl font-bold">¥1,000</span>
+            </div>
+          </div>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <button
-              onClick={() => onNavigate('admission')}
+              onClick={() => onNavigate('payment')}
               className="px-8 py-4 bg-white text-primary-700 font-semibold rounded-full hover:bg-gray-50 transition-all duration-300 hover:scale-105 shadow-xl"
             >
-              Apply for This Course
+              Book This Course
             </button>
             <button
               onClick={() => onNavigate('contact')}
