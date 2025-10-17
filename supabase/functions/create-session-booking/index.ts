@@ -40,7 +40,7 @@ Deno.serve(async (req) => {
 
     console.log("💳 Creating Stripe session for:", studentEmail);
 
-    // Create Stripe Checkout session
+    // Create Stripe Checkout session WITH INVOICE SUPPORT
     const session = await stripe.checkout.sessions.create({
       mode: "payment",
       payment_method_types: ["card"],
@@ -58,6 +58,7 @@ Deno.serve(async (req) => {
           quantity: 1,
         },
       ],
+      // ✅ ADDED: Enable invoice creation and pass session_id
       success_url: "https://shademy.online/success?session_id={CHECKOUT_SESSION_ID}",
       cancel_url: "https://shademy.online/session-booking",
       metadata: {
@@ -66,6 +67,10 @@ Deno.serve(async (req) => {
         student_name: studentName,
         session_date: sessionDate,
         session_time: sessionTime
+      },
+      // ✅ ADDED: Enable automatic invoice creation
+      invoice_creation: {
+        enabled: true,
       },
     });
 
