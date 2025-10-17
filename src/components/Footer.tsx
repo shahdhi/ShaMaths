@@ -76,7 +76,7 @@ export default function Footer({ onNavigate }: FooterProps) {
             <ul className="space-y-3">
               <li className="flex items-start space-x-3">
                 <Mail size={18} className="mt-0.5 flex-shrink-0" />
-                <span className="text-sm">contact@shademy.com</span>
+                <span className="text-sm">contact@shademy.online</span>
               </li>
               <li className="flex items-start space-x-3">
                 <Phone size={18} className="mt-0.5 flex-shrink-0" />
@@ -84,7 +84,7 @@ export default function Footer({ onNavigate }: FooterProps) {
               </li>
               <li className="flex items-start space-x-3">
                 <MapPin size={18} className="mt-0.5 flex-shrink-0" />
-                <span className="text-sm">Tokyo, Japan</span>
+                <span className="text-sm">Kyoto, Japan</span>
               </li>
             </ul>
           </div>
@@ -97,6 +97,13 @@ export default function Footer({ onNavigate }: FooterProps) {
           <div className="flex space-x-6 text-sm">
             <button className="hover:text-white transition-colors">Privacy Policy</button>
             <button className="hover:text-white transition-colors">Terms of Service</button>
+            {/* ADDED: Business Information for Specified Commercial Act Link */}
+            <button 
+              onClick={() => onNavigate('commercial-transactions')}
+              className="hover:text-white transition-colors"
+            >
+              特定商取引法に基づく表記
+            </button>
           </div>
         </div>
       </div>
