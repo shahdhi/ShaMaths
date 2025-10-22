@@ -497,7 +497,7 @@ export default function CourseDetailPage({ courseId, onNavigate }: CourseDetailP
           <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 mb-8 inline-block">
             <div className="flex items-center justify-center gap-3">
               <span className="text-primary-100 text-lg">Price per session:</span>
-              <span className="text-4xl font-bold">¥1,000</span>
+              <span className="text-4xl font-bold">$5</span>
             </div>
           </div>
           
@@ -507,7 +507,7 @@ export default function CourseDetailPage({ courseId, onNavigate }: CourseDetailP
               onClick={() => navigate('/session-booking', { state: { courseName: course.title } })}
               className="bg-gradient-to-r from-green-500 to-green-600 text-white px-8 py-4 rounded-xl font-bold text-lg hover:from-green-600 hover:to-green-700 transition-all duration-300 shadow-lg hover:shadow-xl hover:scale-105 mb-4"
             >
-              Book Session - ¥1,000
+              Book Session - $5
             </button>
             <p className="text-green-200 text-sm">One-on-one tutoring session</p>
           </div>
