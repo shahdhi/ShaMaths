@@ -1,5 +1,10 @@
 import { Mail, Phone, MapPin, BookOpen, Twitter, Linkedin } from 'lucide-react';
 
+// Note: You'll need to add a LINE icon import. You can use one of these options:
+// Option 1: Use a custom SVG or import from another icon library
+// Option 2: Use a simple alternative icon from lucide-react like MessageCircle
+import { MessageCircle } from 'lucide-react';
+
 interface FooterProps {
   onNavigate: (page: string) => void;
 }
@@ -30,6 +35,16 @@ export default function Footer({ onNavigate }: FooterProps) {
                 aria-label="LinkedIn"
               >
                 <Linkedin size={18} />
+              </a>
+              {/* ADDED: LINE Icon */}
+              <a
+                href="https://line.me/ti/p/-urJ_GuXXT"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-green-600 transition-all duration-300 hover:scale-110"
+                aria-label="LINE"
+              >
+                <MessageCircle size={18} />
               </a>
             </div>
           </div>
