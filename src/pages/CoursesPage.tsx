@@ -311,7 +311,7 @@ export default function CoursesPage({ onNavigate }: CoursesPageProps) {
                 <div className="mb-4 p-4 bg-gradient-to-r from-accent-50 to-primary-50 rounded-xl border border-primary-200">
                   <div className="flex items-center justify-between">
                     <span className="text-gray-700 font-medium">Price per session</span>
-                    <span className="text-2xl font-bold text-primary-700">¥1,000</span>
+                    <span className="text-2xl font-bold text-primary-700">$5</span>
                   </div>
                 </div>
 
@@ -321,7 +321,7 @@ export default function CoursesPage({ onNavigate }: CoursesPageProps) {
                     onClick={() => navigate('/session-booking', { state: { courseName: course.title } })}
                     className="w-full bg-green-500 text-white py-3 px-4 rounded-lg font-semibold hover:bg-green-600 transition-all duration-300 hover:scale-105 shadow-md mb-2"
                   >
-                    Book Session - ¥1,000
+                    Book Session - $5
                   </button>
                   <p className="text-green-600 text-sm">Direct booking with instant confirmation</p>
                 </div>
