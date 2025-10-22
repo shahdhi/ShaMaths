@@ -25,8 +25,8 @@ export default function SessionBookingPage() {
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({
             ...formData,
-            amount: 1000,
-            currency: 'jpy'
+            amount: 5,
+            currency: 'usd'
           }),
         }
       );
@@ -49,7 +49,7 @@ export default function SessionBookingPage() {
   return (
     <div className="min-h-screen bg-gray-50 py-12 px-4">
       <div className="max-w-md mx-auto bg-white rounded-lg shadow-md p-6">
-        <h2 className="text-2xl font-bold mb-6">Book a Session - ¥1000</h2>
+        <h2 className="text-2xl font-bold mb-6">Book a Session - $5</h2>
         
         <form onSubmit={handleSubmit} className="space-y-4">
           <div>
@@ -116,7 +116,7 @@ export default function SessionBookingPage() {
             disabled={loading}
             className="w-full bg-blue-600 text-white py-2 px-4 rounded-md hover:bg-blue-700 disabled:opacity-50"
           >
-            {loading ? 'Processing...' : 'Book Session - ¥1000'}
+            {loading ? 'Processing...' : 'Book Session - $5'}
           </button>
         </form>
       </div>
